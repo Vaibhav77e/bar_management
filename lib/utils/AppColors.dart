@@ -12,5 +12,6 @@ class AppColors{
   static const Color indigo_300 = Color(0xFFEAEDF6);
   static const Color indigo_800 = Color(0xFF333B69);
   static const Color inventoryCardColor = Color(0xFFD9EDBF);
-  static const Color cardBackgroundColor = Color.fromARGB(255, 235, 236, 238);
+  static const Color cardBackgroundColor = Color(0xFFEBECEE);
+  static const Color primaryColor = Color(0xFF9a0f30);
 }

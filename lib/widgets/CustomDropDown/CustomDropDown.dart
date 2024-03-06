@@ -1,6 +1,8 @@
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/MediaqueryHelper.dart';
+
 class CustomRoundedDropdown<T> extends StatelessWidget {
   final List<DropdownMenuItem<T>> items;
   final T? value;
@@ -21,8 +23,11 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     return Container(
+      padding: EdgeInsets.symmetric(horizontal:mediaQueryHelper.getWidthPercentage(2)),
       decoration: BoxDecoration(
+        color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(borderRadius),
         border: Border.all(color: borderColor),
       ),

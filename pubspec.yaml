@@ -92,6 +92,18 @@ flutter:
     fonts:
       - asset: assets/fonts/Inter/static/Inter-Regular.ttf
       - asset: assets/fonts/Inter/static/Inter-SemiBold.ttf
+
+  - family: Afta Serif
+    fonts:
+      - asset: assets/fonts/afta-serif/AftaSerifThin-Italic.otf
+      - asset: assets/fonts/afta-serif/afta-serif/AftaSerifThin-Regular.otf
+
+  - family: Afta Serif
+    fonts:
+      - asset: assets/fonts/PT_Serif/PT_Serif/PTSerif-Bold.ttf
+      - asset: assets/fonts/PT_Serif/PT_Serif/PTSerif-BoldItalic.ttf
+      - asset: assets/fonts/PT_Serif/PT_Serif/PTSerif-Italic.ttf
+      - asset: assets/fonts/PT_Serif/PT_Serif/PTSerif-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

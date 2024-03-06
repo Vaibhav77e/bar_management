@@ -3,9 +3,11 @@ import 'package:bar_management_system/screens/Orders/OrdersScreen.dart';
 import 'package:bar_management_system/screens/Payments/PaymentsScreen.dart';
 import 'package:bar_management_system/screens/Reports/ReportsScreen.dart';
 import 'package:bar_management_system/screens/Staffs/CreateNewStaffs.dart';
+import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/AppColors.dart';
 import '../Inventory/AddProductsToInventory.dart';
 import '../Inventory/EditInventoryProducts.dart';
 import '../Staffs/EditStaffs.dart';
@@ -36,6 +38,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           SizedBox(
             width: 200, // Width of the locked sidebar
             child: Drawer(
+              backgroundColor: AppColors.primaryColor,
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: <Widget>[
@@ -43,7 +46,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     leading: SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(5),
                       child: Image.asset('assets/images/dashboard.png',)),
-                    title: Text('Dashboard'),
+                    title: Text('Dashboard',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                     onTap: () {
                       _changeContent(DashBoardScreen());
                     },
@@ -52,18 +55,18 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     leading: SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(5),
                       child: Image.asset('assets/images/inventory-management.png')),
-                    title: Text('Inventory'),
+                    title: Text('Inventory',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade),),
                     children:<Widget>[ 
                       ListTile(
                       leading: Icon(Icons.add),
-                      title: Text('Add Products'),
+                      title: Text('Add Products',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                       onTap: () {
                         _changeContent(AddProductsToInventory());
                       },
                     ),
                     ListTile(
                       leading: Icon(Icons.edit),
-                      title: Text('Edit Products'),
+                      title: Text('Edit Products',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                       onTap: () {
                         _changeContent(EditInventoryProducts());
                       },
@@ -74,7 +77,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         leading:SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(5),
                       child: Image.asset('assets/images/order.png')) ,
-                        title: Text('Orders'),
+                        title: Text('Orders',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                         onTap: () {
                           _changeContent(OrdersScreen());
                         },
@@ -83,7 +86,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         leading:SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(5),
                       child: Image.asset('assets/images/payment-method.png')) ,
-                        title: Text('Payments'),
+                        title: Text('Payments',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                         onTap: () {
                           _changeContent(PaymentsScreen());
                         },
@@ -91,18 +94,18 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 
                   ExpansionTile(
                     leading: Image.asset('assets/images/staff.png'),
-                    title: Text('Staffs'),
+                    title: Text('Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                     children: <Widget>[
                       ListTile(
                         leading: Icon(Icons.add),
-                        title: Text('Add Staffs'),
+                        title: Text('Add Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                         onTap: () {
                           _changeContent(CreateNewStaffs());
                         },
                       ),
                       ListTile(
                         leading: Icon(Icons.edit),
-                        title: Text('Edit Staffs'),
+                        title: Text('Edit Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                         onTap: () {
                           _changeContent(EditStaffs());
                         },
@@ -113,7 +116,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     leading:SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(5),
                       child: Image.asset('assets/images/report.png')) ,
-                        title: Text('Reports'),
+                        title: Text('Reports',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                         onTap: () {
                           _changeContent(ReportScreen());
                         },
