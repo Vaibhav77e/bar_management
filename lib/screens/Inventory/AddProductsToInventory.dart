@@ -24,6 +24,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
   final TextEditingController productCategory = TextEditingController();
 
   String _selectedCategory = 'Select a category'; // Initial selected category
+  String _selectProduct = 'Select a product';
 
   // List of available categories
   final List<String> _categories = ['Category 1', 'Category 2', 'Category 3'];
@@ -260,7 +261,6 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                     color: AppColors.cardBackgroundColor
                   ),
                   child:Column(
-                    
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Category',
@@ -283,8 +283,8 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                               ).then((value) {
                                 if (value != null) {
                                   setState(() {
-                                    _selectedCategory = value;
-                                    productCategory.text = _selectedCategory;
+                                    _selectProduct = value;
+                                    productCategory.text = _selectProduct;
                                   });
                                 }
                               });
@@ -298,7 +298,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                       )
                     ],
                   )
-                )
+                ),
               ],
             )
           ],

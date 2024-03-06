@@ -248,3 +248,90 @@ class _MyImagePickerState extends State<MyImagePicker> {
   }
 }
 
+
+
+
+/**
+ * ConstContainerBody(
+                  height: 35,
+                  // 2nd card
+                  child:Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     Text('Pricing and stocks',
+                      style: AppTypography.normalText.copyWith(fontWeight: FontWeight.w700)),
+                      SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Base Pricing',style: AppTypography.normalText,),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
+                            child: AppTextFieldForm(labelText: 'Base Pricing', controller: priceController)
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Stock',style: AppTypography.normalText,),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
+                            child: AppTextFieldForm(
+                            labelText: 'Stocks', 
+                            controller: stockController)
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Discount',style: AppTypography.normalText,),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
+                            child: AppTextFieldForm(labelText: 'Discount', controller: discountController)
+                            ),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('DiscountType',style: AppTypography.normalText,),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
+                            child: GestureDetector(
+                               onTap: () {
+                              // Show the PopupMenuButton
+                              showMenu<String>(
+                                context: context,
+                                position: RelativeRect.fromLTRB(300, 900, 290, 0),
+                                items: _categories.map((String category) {
+                                  return PopupMenuItem<String>(
+                                    value: category,
+                                    child: Text(category),
+                                  );
+                                }).toList(),
+                              ).then((value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _selectedCategory = value;
+                                    discountType.text = _selectedCategory;
+                                  });
+                                }
+                              });
+                            },
+                              child: AppTextFieldForm(
+                              labelText: 'Stocks', 
+                              controller: stockController,
+                              isEnabled: false,
+                              suffixIcon: const Icon(Icons.keyboard_arrow_down,),
+                          ),
+                        )
+                      ),
+                    ],
+                  ),
+              ],)
+            )
+ */
+
