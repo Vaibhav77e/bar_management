@@ -21,11 +21,13 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
   final TextEditingController stockController = TextEditingController();
   final TextEditingController discountController = TextEditingController();
   final TextEditingController discountType = TextEditingController();
+  final TextEditingController productCategory = TextEditingController();
 
   String _selectedCategory = 'Select a category'; // Initial selected category
 
   // List of available categories
   final List<String> _categories = ['Category 1', 'Category 2', 'Category 3'];
+  final List<String> _productCategories = ['Product Category 1', 'Product Category 2', 'Product Category 3'];
 
   // to upload images (now preview mode)
 
@@ -172,32 +174,31 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                             SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
                             child: GestureDetector(
                                onTap: () {
-                    // Show the PopupMenuButton
-                    showMenu<String>(
-                      context: context,
-                      position: RelativeRect.fromLTRB(300, 900, 290, 0),
-                      items: _categories.map((String category) {
-                        return PopupMenuItem<String>(
-                          value: category,
-                          child: Text(category),
-                        );
-                      }).toList(),
-                    ).then((value) {
-                      if (value != null) {
-                        setState(() {
-                          _selectedCategory = value;
-                          discountType.text = _selectedCategory;
-                        });
-                      }
-                    });
-                  },
+                              // Show the PopupMenuButton
+                              showMenu<String>(
+                                context: context,
+                                position: RelativeRect.fromLTRB(300, 900, 290, 0),
+                                items: _categories.map((String category) {
+                                  return PopupMenuItem<String>(
+                                    value: category,
+                                    child: Text(category),
+                                  );
+                                }).toList(),
+                              ).then((value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _selectedCategory = value;
+                                    discountType.text = _selectedCategory;
+                                  });
+                                }
+                              });
+                            },
                               child: AppTextFieldForm(
                               labelText: 'Stocks', 
                               controller: stockController,
                               isEnabled: false,
                               suffixIcon: const Icon(Icons.keyboard_arrow_down,),
-                              
-                                                    ),
+                              ),
                             )
                             ),
                           ],
@@ -213,7 +214,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
               children: [
                 SizedBox(height: mediaQueryHelper.getHeightPercentage(8)),
                 Container(
-                  height: mediaQueryHelper.getHeightPercentage(80),
+                  height: mediaQueryHelper.getHeightPercentage(50),
                   width: mediaQueryHelper.getWidthPercentage(25),
                   padding: EdgeInsets.symmetric(horizontal: mediaQueryHelper.getWidthPercentage(2),
                   vertical: mediaQueryHelper.getHeightPercentage(2)),
@@ -247,7 +248,57 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                     ],
                   ),
                 ),
-                
+                SizedBox(height: mediaQueryHelper.getHeightPercentage(5),),
+                // ADD product category
+                Container(
+                  height: mediaQueryHelper.getHeightPercentage(25),
+                  width: mediaQueryHelper.getWidthPercentage(25),
+                  padding: EdgeInsets.symmetric(horizontal: mediaQueryHelper.getWidthPercentage(2),
+                  vertical: mediaQueryHelper.getHeightPercentage(2)),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.cardBackgroundColor
+                  ),
+                  child:Column(
+                    
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Category',
+                      style: AppTypography.normalText.copyWith(fontWeight: FontWeight.w700)),
+                      SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                      const Text('Product Category',style: AppTypography.normalSmallText),
+                      SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
+                      GestureDetector(
+                        onTap: () {
+                              // Show the PopupMenuButton
+                              showMenu<String>(
+                                context: context,
+                                position: RelativeRect.fromLTRB(500, 800, 0, 100),
+                                items: _productCategories.map((String category) {
+                                  return PopupMenuItem<String>(
+                                    value: category,
+                                    child: Text(category),
+                                  );
+                                }).toList(),
+                              ).then((value) {
+                                if (value != null) {
+                                  setState(() {
+                                    _selectedCategory = value;
+                                    productCategory.text = _selectedCategory;
+                                  });
+                                }
+                              });
+                            },
+                        child: AppTextFieldForm(
+                        labelText: 'Product Category',
+                        controller: productCategory,
+                        isEnabled: false,
+                        suffixIcon: Icon(Icons.keyboard_arrow_down),
+                        ),
+                      )
+                    ],
+                  )
+                )
               ],
             )
           ],
