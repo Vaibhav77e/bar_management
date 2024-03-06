@@ -1,5 +1,5 @@
 import 'package:bar_management_system/screens/DashBoard/DashBoardScreen.dart';
-import 'package:bar_management_system/screens/Inventory/InventoryScreen.dart';
+import 'package:bar_management_system/screens/Inventory/AddProductsToInventory.dart';
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';

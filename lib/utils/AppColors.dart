@@ -8,5 +8,8 @@ class AppColors{
   static const Color textGreyColor = Color(0xFF9E9E9E);
   static const Color mainMenuColor2 = Color(0xFFF8F4EC);
   static const Color mainMenuColor3 = Color(0xFFF9F7C9);//
+  static const Color indigo_300 = Color(0xFFEAEDF6);
+  static const Color indigo_800 = Color(0xFF333B69);
   static const Color inventoryCardColor = Color(0xFFD9EDBF);
+  static const Color cardBackgroundColor = Color.fromARGB(255, 235, 236, 238);
 }
