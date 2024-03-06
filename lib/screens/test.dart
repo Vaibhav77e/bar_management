@@ -198,55 +198,100 @@
 //     )
 //  */
 
-import 'dart:io';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
-class MyImagePicker extends StatefulWidget {
+
+class MyAppTest extends StatefulWidget {
   @override
-  _MyImagePickerState createState() => _MyImagePickerState();
+  State<MyAppTest> createState() => _MyAppTestState();
 }
 
-class _MyImagePickerState extends State<MyImagePicker> {
-  File? _image;
-
-  final picker = ImagePicker();
-
-  Future getImage() async {
-    final pickedFile = await picker.pickImage(
-      source:  ImageSource.gallery,
-    );
-
-    setState(() {
-      if (pickedFile != null) {
-        _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
-      }
-    });
-  }
+class _MyAppTestState extends State<MyAppTest> {
+  String initialValue = 'Option 1';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Image Picker Example'),
-      ),
-      body: Center(
-        child: _image == null
-            ? Text('No image selected.')
-            : Image.file(_image!),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
+    return MaterialApp(
+      title: 'Custom Rounded Dropdown',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Custom Rounded Dropdown Example'),
+        ),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: CustomRoundedDropdown<String>(
+              items: [
+                DropdownMenuItem<String>(
+                  value: 'Option 1',
+                  child: Text('Option 1'),
+                ),
+                DropdownMenuItem<String>(
+                  value: 'Option 2',
+                  child: Text('Option 2'),
+                ),
+                DropdownMenuItem<String>(
+                  value: 'Option 3',
+                  child: Text('Option 3'),
+                ),
+              ],
+              value: initialValue, // Initial value
+              onChanged: (value) {
+                // Handle dropdown value change
+                print('Selected value: $value');
+                setState(() {
+                  initialValue=value!;
+                });
+                // You can set state here to update UI or perform other actions
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
 }
+
+class CustomRoundedDropdown<T> extends StatelessWidget {
+  final List<DropdownMenuItem<T>> items;
+  final T? value;
+  final ValueChanged<T?>? onChanged;
+  final double borderRadius;
+  final Color borderColor;
+  final Color dropdownColor;
+
+  const CustomRoundedDropdown({
+    Key? key,
+    required this.items,
+    required this.value,
+    required this.onChanged,
+    this.borderRadius = 10.0,
+    this.borderColor = Colors.grey,
+    this.dropdownColor = Colors.white,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius),
+        border: Border.all(color: borderColor),
+      ),
+      child: DropdownButton<T>(
+        items: items,
+        value: value,
+        onChanged: onChanged,
+        underline: Container(),
+        icon: Icon(Icons.keyboard_arrow_down),
+        iconSize: 24.0,
+        isExpanded: true,
+        dropdownColor: dropdownColor,
+      ),
+    );
+  }
+}
+
+
 
 
 

@@ -44,7 +44,7 @@ class _EditInventoryProductsState extends State<EditInventoryProducts> {
   final TextEditingController discountType = TextEditingController();
   final TextEditingController productCategory = TextEditingController();
 
-  String _selectedCategory = 'Select a category'; // Initial selected category
+  String _selectedCategory = 'Select a category';
   String _selectProduct = 'Select a product';
 
   // List of available categories
@@ -59,7 +59,6 @@ class _EditInventoryProductsState extends State<EditInventoryProducts> {
       padding: EdgeInsets.symmetric(
       horizontal: mediaQueryHelper.getWidthPercentage(4),
       vertical: mediaQueryHelper.getHeightPercentage(2),
-      
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
