@@ -11,6 +11,9 @@ class AppTextFieldForm extends StatelessWidget{
   int? maxLength;
   void Function(String)? onChanged;
   TextCapitalization textCapitalization;
+  int? maxLines;
+  Widget? suffixIcon;
+  bool? isEnabled;
 
   AppTextFieldForm({
     required this.labelText,
@@ -18,6 +21,9 @@ class AppTextFieldForm extends StatelessWidget{
     this.onChanged,
     this.keyboardType,
     this.maxLength=1000,
+    this.suffixIcon,
+    this.maxLines=1,
+    this.isEnabled=true,
     this.textCapitalization = TextCapitalization.none
   });
 
@@ -32,18 +38,22 @@ class AppTextFieldForm extends StatelessWidget{
         ],
         textCapitalization: textCapitalization,
         controller: controller,
+        enabled:isEnabled ,
         decoration: InputDecoration(
           floatingLabelBehavior: FloatingLabelBehavior.never,
           labelText: labelText,
+          suffixIcon: suffixIcon,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide.none
           ),
           filled: true,
-          fillColor:AppColors.indigo_300,
+          fillColor:AppColors.textFieldBodyColor,
         ),
         onChanged: onChanged,
         keyboardType: keyboardType,
+        maxLines: maxLines,
+        
       );
   }
   

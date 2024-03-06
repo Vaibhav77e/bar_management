@@ -39,6 +39,7 @@ dependencies:
   get_it: ^7.6.7
   dio: ^5.4.1
   flutter_admin_scaffold: ^1.2.0
+  image_picker: ^1.0.7
 
 dev_dependencies:
   flutter_test:
