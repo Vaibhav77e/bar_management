@@ -42,85 +42,84 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: <Widget>[
-                  ListTile(
-                    leading: SizedBox(
-                      height: mediaQueryHelper.getHeightPercentage(5),
-                      child: Image.asset('assets/images/dashboard.png',)),
-                    title: Text('Dashboard',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                    onTap: () {
+                  TileComponent(onTap:() {
                       _changeContent(DashBoardScreen());
-                    },
+                    },assetImage: 'assets/images/dashboard.png',
+                    height: 3,
+                    title: 'Dashboard'
                   ),
                   ExpansionTile(
                     leading: SizedBox(
-                      height: mediaQueryHelper.getHeightPercentage(5),
-                      child: Image.asset('assets/images/inventory-management.png')),
+                      height: mediaQueryHelper.getHeightPercentage(4),
+                      child: Image.asset('assets/images/inventory-management.png',color: AppColors.whiteColor,)),
                     title: Text('Inventory',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade),),
-                    children:<Widget>[ 
-                      ListTile(
-                      leading: Icon(Icons.add),
-                      title: Text('Add Products',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                      onTap: () {
-                        _changeContent(AddProductsToInventory());
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.edit),
-                      title: Text('Edit Products',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                      onTap: () {
-                        _changeContent(EditInventoryProducts());
-                      },
-                    ),
+                    children:<Widget>[
+                      TileComponent(
+                        onTap:() {
+                          _changeContent(AddProductsToInventory());
+                        },
+                        assetImage: 'assets/images/add.png',
+                        height: 3,
+                        title: 'Add Products'
+                      ),
+                      TileComponent(
+                        onTap:() {
+                          _changeContent(EditInventoryProducts());
+                        },
+                        assetImage: 'assets/images/edit.png',
+                        height: 3,
+                        title: 'Edit Products'
+                      ),
                     ]
                   ),
-                  ListTile(
-                        leading:SizedBox(
-                      height: mediaQueryHelper.getHeightPercentage(5),
-                      child: Image.asset('assets/images/order.png')) ,
-                        title: Text('Orders',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                        onTap: () {
-                          _changeContent(OrdersScreen());
-                        },
-                      ),
-                  ListTile(
-                        leading:SizedBox(
-                      height: mediaQueryHelper.getHeightPercentage(5),
-                      child: Image.asset('assets/images/payment-method.png')) ,
-                        title: Text('Payments',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                        onTap: () {
-                          _changeContent(PaymentsScreen());
-                        },
-                      ),
-
+                  SizedBox(width: mediaQueryHelper.getHeightPercentage(2),),
+                  TileComponent(
+                    onTap:() {
+                      _changeContent(OrdersScreen());
+                    },
+                    assetImage: 'assets/images/order.png',
+                    height: 4,
+                    title: 'Orders'
+                  ),
+                  TileComponent(
+                    onTap:() {
+                      _changeContent(PaymentsScreen());
+                    },
+                    assetImage: 'assets/images/payment-method.png',
+                    height: 4,
+                    title: 'Payments'
+                  ),
                   ExpansionTile(
-                    leading: Image.asset('assets/images/staff.png'),
+                    leading: Image.asset('assets/images/staff.png',color: AppColors.whiteColor),
                     title: Text('Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                     children: <Widget>[
-                      ListTile(
-                        leading: Icon(Icons.add),
-                        title: Text('Add Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                        onTap: () {
+                      TileComponent(
+                        onTap:() {
                           _changeContent(CreateNewStaffs());
                         },
+                        assetImage: 'assets/images/add.png',
+                        height: 3,
+                        title: 'Add Staffs'
                       ),
-                      ListTile(
-                        leading: Icon(Icons.edit),
-                        title: Text('Edit Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                        onTap: () {
+                      TileComponent(
+                        onTap:() {
                           _changeContent(EditStaffs());
                         },
+                        assetImage: 'assets/images/edit.png',
+                        height: 3,
+                        title: 'Edit Staffs'
                       ),
                     ],
                   ),
-                  ListTile(
-                    leading:SizedBox(
-                      height: mediaQueryHelper.getHeightPercentage(5),
-                      child: Image.asset('assets/images/report.png')) ,
-                        title: Text('Reports',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
-                        onTap: () {
-                          _changeContent(ReportScreen());
-                        },
-                      ),
+                  SizedBox(width: mediaQueryHelper.getHeightPercentage(2),),
+                  TileComponent(
+                    onTap:() {
+                      _changeContent(ReportScreen());
+                    },
+                    assetImage: 'assets/images/report.png',
+                    height: 4,
+                    title: 'Reports'
+                  ),
                 ],
               ),
             ),
@@ -132,6 +131,22 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget TileComponent({double height=4,Color? imageColor=AppColors.whiteColor,Color? textColor=AppColors.whiteColor,
+  required void Function()? onTap,required String title,required String assetImage}){
+    MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
+    return Padding(
+      padding:  EdgeInsets.only(bottom:mediaQueryHelper.getHeightPercentage(2)),
+      child: ListTile(
+        leading:SizedBox(
+        height: mediaQueryHelper.getHeightPercentage(height),
+        child: Image.asset(assetImage,color: imageColor)) ,
+        title: Text(title,
+        style: AppTypography.normalSmallText.copyWith(color: textColor,overflow: TextOverflow.fade)),
+        onTap: onTap,
       ),
     );
   }
