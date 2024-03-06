@@ -2,11 +2,11 @@ import 'package:bar_management_system/screens/DashBoard/DashBoardScreen.dart';
 import 'package:bar_management_system/screens/Orders/OrdersScreen.dart';
 import 'package:bar_management_system/screens/Payments/PaymentsScreen.dart';
 import 'package:bar_management_system/screens/Reports/ReportsScreen.dart';
-import 'package:bar_management_system/screens/Staffs/StaffsScreen.dart';
+import 'package:bar_management_system/screens/Staffs/CreateNewStaffs.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
 import 'package:flutter/material.dart';
 
-import '../Inventory/InventoryScreen.dart';
+import '../Inventory/AddProductsToInventory.dart';
 
 
 class HomeScreenPage extends StatefulWidget {
@@ -19,10 +19,10 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
 
   final List<Widget> _pages = [
     DashBoardScreen(),
-    InventoryScreen(),
+    AddProductsToInventory(),
     OrdersScreen(),
     PaymentsScreen(),
-    StaffsScreen(),
+    CreateNewStaffs(),
     ReportScreen()
   ];
 

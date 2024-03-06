@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'routes/route.dart';
 import 'screens/DashBoard/DashBoardScreen.dart';
 import 'screens/HomeScreen/HomeScreenPage.dart';
+import 'screens/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreenPage(),
+     // home: HomeScreenPage(),
      // home: DrawerMenuScreen(),
+     home: TestPage(),
       routes: APP_ROUTES,
     );
   }
