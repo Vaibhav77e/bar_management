@@ -172,7 +172,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
           left: leftSpacing
           ),
           child: Text(title,textAlign:textAlign,),
-          );
+    );
   }
 
 
@@ -191,7 +191,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
 
 
     // here call api to generate invoice's
-    
+
   }
 
   @override

@@ -40,6 +40,7 @@ dependencies:
   dio: ^5.4.1
   flutter_admin_scaffold: ^1.2.0
   image_picker: ^1.0.7
+  charts_flutter: ^0.12.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
       - assets/fonts/
       - assets/images/
       - assets/images/dashboard-images/
+      - assets/images/reports-images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

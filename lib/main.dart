@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       ),
      home: HomeScreenPage(),
      // home: DrawerMenuScreen(),
-      //home: MyAppTest(),
+     // home: BarChartWidget(),
       routes: APP_ROUTES,
     );
   }
