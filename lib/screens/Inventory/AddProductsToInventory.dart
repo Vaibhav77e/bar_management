@@ -245,7 +245,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                                 borderRadius: BorderRadius.circular(16),
                                 child: Image.file(_image!,fit: BoxFit.fill,)),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

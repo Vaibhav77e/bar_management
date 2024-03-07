@@ -18,4 +18,6 @@ class AppColors{
   static const Color deleteButtonColor = Color(0xFFEE4266);
   static const Color saveButtonColor = Color(0xFF9BCF53);
   static const Color greenColor = Color(0xFF74E291);
+  static const Color vineGreenColor = Color(0xFF416D19);
+  static const Color lightGreenColor = Color(0xFFD4E7C5);
 }
