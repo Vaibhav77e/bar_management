@@ -222,8 +222,14 @@ class _EditInventoryProductsState extends State<EditInventoryProducts> {
   }
 
   showEditDialog(){
+
     MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
-    showDialog(context: context, builder: (context)=>AlertDialog(
+    showDialog(
+      
+      context: context, 
+      builder: (context)=>AlertDialog(
+      backgroundColor: AppColors.whiteColor,
+      surfaceTintColor: Colors.transparent,
       content:  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -361,18 +367,48 @@ class _EditInventoryProductsState extends State<EditInventoryProducts> {
                               AppTextFieldForm(labelText: 'Base Pricing', controller: priceController)
                             ],
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text('Stock',style: AppTypography.normalText,),
-                              SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
-                               AppTextFieldForm(
-                              labelText: 'Stocks', 
-                              controller: stockController)
-                            ],
-                          ),
-                ],)
-              )
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Stock',style: AppTypography.normalText,),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                              AppTextFieldForm(
+                            labelText: 'Stocks', 
+                            controller: stockController),
+                      ],
+                    ),
+              SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: mediaQueryHelper.getWidthPercentage(15),
+                  child: AppButton(
+                    color: AppColors.whiteColor,
+                    buttonColor: AppColors.saveButtonColor,
+                    height: mediaQueryHelper.getHeightPercentage(5),
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    text: 'Save',
+                  ),
+                ),
+                SizedBox(
+                  width: mediaQueryHelper.getWidthPercentage(15),
+                  child: AppButton(
+                    color: AppColors.whiteColor,
+                    buttonColor: AppColors.deleteButtonColor,
+                    height: mediaQueryHelper.getHeightPercentage(5),
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    text: 'Delete',
+                  ),
+                ),
+              ]
+            )
+                ],),
+              ),
           ],
         ),
       ),

@@ -33,15 +33,17 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   Widget build(BuildContext context) {
     MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
     return Scaffold(
+      backgroundColor: AppColors.cardBackgroundColor,
       body: Row(
         children: <Widget>[
           SizedBox(
-            width: 200, // Width of the locked sidebar
+            width: 250, // Width of the locked sidebar
             child: Drawer(
               backgroundColor: AppColors.primaryColor,
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: <Widget>[
+                  SizedBox(height: mediaQueryHelper.getHeightPercentage(8),),
                   TileComponent(onTap:() {
                       _changeContent(DashBoardScreen());
                     },assetImage: 'assets/images/dashboard.png',
@@ -49,6 +51,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     title: 'Dashboard'
                   ),
                   ExpansionTile(
+                    collapsedIconColor:AppColors.whiteColor,
+                    iconColor : AppColors.whiteColor,
                     leading: SizedBox(
                       height: mediaQueryHelper.getHeightPercentage(4),
                       child: Image.asset('assets/images/inventory-management.png',color: AppColors.whiteColor,)),
@@ -72,6 +76,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       ),
                     ]
                   ),
+                   SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                   SizedBox(width: mediaQueryHelper.getHeightPercentage(2),),
                   TileComponent(
                     onTap:() {
@@ -90,6 +95,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     title: 'Payments'
                   ),
                   ExpansionTile(
+                    collapsedIconColor:AppColors.whiteColor,
+                    iconColor : AppColors.whiteColor,
                     leading: Image.asset('assets/images/staff.png',color: AppColors.whiteColor),
                     title: Text('Staffs',style: AppTypography.normalSmallText.copyWith(color: AppColors.whiteColor,overflow: TextOverflow.fade)),
                     children: <Widget>[
@@ -101,6 +108,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         height: 3,
                         title: 'Add Staffs'
                       ),
+                      
                       TileComponent(
                         onTap:() {
                           _changeContent(EditStaffs());
@@ -111,7 +119,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                       ),
                     ],
                   ),
-                  SizedBox(width: mediaQueryHelper.getHeightPercentage(2),),
+                   SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                   TileComponent(
                     onTap:() {
                       _changeContent(ReportScreen());

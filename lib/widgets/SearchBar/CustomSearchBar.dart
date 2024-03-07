@@ -8,8 +8,16 @@ import '../../utils/MediaqueryHelper.dart';
 class CustomSearchBar extends StatefulWidget {
   final TextEditingController searchController;
   final String? hintText;
+  final Color? fillColor;
+  final Color? backgroundSearchBarColor;
 
-   CustomSearchBar({Key? key,required this.searchController,this.hintText='Search...'}) : super(key: key);
+
+   CustomSearchBar({Key? key,
+   required this.searchController,
+   this.hintText='Search...',
+   this.fillColor = AppColors.whiteColor,
+   this.backgroundSearchBarColor = AppColors.whiteColor,
+   });
 
   @override
   _CustomSearchBarState createState() => _CustomSearchBarState();
@@ -51,6 +59,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
          top: mediaQueryHelper.getWidthPercentage(0.5)
         ),
         decoration: BoxDecoration(
+          color: widget.backgroundSearchBarColor,
           border: Border.all(color: AppColors.textFieldBodyColor),
           borderRadius: BorderRadius.circular(16.0),
         ),
@@ -63,6 +72,8 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 controller: widget.searchController,
                 onChanged: _onTextChanged,
                 decoration: InputDecoration(
+                  fillColor:widget.fillColor ,
+                  filled: true,
                   hintText: widget.hintText,
                   hintStyle: AppTypography.normalText.copyWith(color:AppColors.textGreyColor ),
                   border: InputBorder.none,

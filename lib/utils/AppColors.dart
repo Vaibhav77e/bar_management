@@ -14,4 +14,6 @@ class AppColors{
   static const Color inventoryCardColor = Color(0xFFD9EDBF);
   static const Color cardBackgroundColor = Color(0xFFEBECEE);
   static const Color primaryColor = Color(0xFF9a0f30);
+  static const Color deleteButtonColor = Color(0xFFEE4266);
+  static const Color saveButtonColor = Color(0xFF9BCF53);
 }

@@ -10,6 +10,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
   final double borderRadius;
   final Color borderColor;
   final Color dropdownColor;
+  final double height;
 
   const CustomRoundedDropdown({
     Key? key,
@@ -17,6 +18,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
     required this.value,
     required this.onChanged,
     this.borderRadius = 10.0,
+    this.height = 5,
     this.borderColor = AppColors.textGreyColor,
     this.dropdownColor = AppColors.whiteColor,
   }) : super(key: key);
@@ -25,6 +27,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
   Widget build(BuildContext context) {
      MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     return Container(
+      height: mediaQueryHelper.getHeightPercentage(height),
       padding: EdgeInsets.symmetric(horizontal:mediaQueryHelper.getWidthPercentage(2)),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
@@ -44,3 +47,32 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
     );
   }
 }
+
+
+
+
+// Container(
+//       padding: EdgeInsets.all(10.0),
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10.0),
+//         border: Border.all(
+//           color: Colors.grey,
+//           width: 1.0,
+//         ),
+//       ),
+//       child: DropdownButton<String>(
+//         value: dropdownValue,
+//         onChanged: (String? newValue) {
+//           setState(() {
+//             dropdownValue = newValue!;
+//           });
+//         },
+//         items: <String>['Option 1', 'Option 2', 'Option 3', 'Option 4']
+//             .map<DropdownMenuItem<String>>((String value) {
+//           return DropdownMenuItem<String>(
+//             value: value,
+//             child: Text(value),
+//           );
+//         }).toList(),
+//       ),
+//     )
