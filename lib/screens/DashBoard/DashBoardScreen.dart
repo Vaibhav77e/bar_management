@@ -36,55 +36,70 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               ],
             ),
             SizedBox(height: mediaQueryHelper.getHeightPercentage(3),),
-            Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
-            SizedBox(height: mediaQueryHelper.getHeightPercentage(3),),
-              Table(
-              border: TableBorder(bottom: BorderSide(width: 0.1)),
-                      children: [
-                        TableRow(
-                           children: [
-                            buildTableRow(title:'Order Id',bottomSpacing: 10),
-                            buildTableRow(title:'Product' ,bottomSpacing: 10),
-                            buildTableRow(title:'Price' ,bottomSpacing: 10),
-                            buildTableRow(title:'Quantity',bottomSpacing: 10 ),
-                            buildTableRow(title:'Total Amount',bottomSpacing: 10 ),
-                  ],
-                ),
-              ],
-            ),
-            Expanded(child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context,index)=>
-              Table(
-
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TableRow(
-                    children: [
-                      Text('3423423'),
-                      SizedBox(
-                      width: mediaQueryHelper.getWidthPercentage(20),
-                      child: Row(
+              Row(
+                children: [
+                  Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
+                ],
+              ),
+              SizedBox(height: mediaQueryHelper.getHeightPercentage(3),),
+                Table(
+                border: TableBorder(bottom: BorderSide(width: 0.1)),
                         children: [
-                          Container(
-                            height: mediaQueryHelper.getHeightPercentage(8),
-                            decoration: BoxDecoration(
-                            color: AppColors.greyColor,
-                            borderRadius: BorderRadius.circular(12)),
-                            child: ClipRRect(borderRadius:  BorderRadius.circular(12),
-                            child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),),
-                          ),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
-                          Text('Amstel Bier')
-                        ],
-                      ),),
-                      Text('₹ 250'),
-                      Text('20'),
-                      Text('₹ 5500')
+                          TableRow(
+                             children: [
+                              buildTableRow(title:'Order Id',bottomSpacing: 10),
+                              buildTableRow(title:'Product' ,bottomSpacing: 10),
+                              buildTableRow(title:'Price' ,bottomSpacing: 10),
+                              buildTableRow(title:'Quantity',bottomSpacing: 10 ),
+                              buildTableRow(title:'Total Amount',bottomSpacing: 10 ),
                     ],
                   ),
-                  
                 ],
-              )
+              ),
+              Expanded(child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context,index)=>
+                Table(
+                  //border: TableBorder(bottom: BorderSide(width:0.2)),
+                  children: [
+                    TableRow(
+                      
+                      children: [
+                        buildTableRow(title: '3423423',topSpacing: 15),
+                        Padding(
+                          padding:  EdgeInsets.only(bottom: mediaQueryHelper.getHeightPercentage(1),top: mediaQueryHelper.getHeightPercentage(1)),
+                          child: SizedBox(
+                          width: mediaQueryHelper.getWidthPercentage(20),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: mediaQueryHelper.getHeightPercentage(8),
+                                decoration: BoxDecoration(
+                                color: AppColors.greyColor,
+                                borderRadius: BorderRadius.circular(12)),
+                                child: ClipRRect(borderRadius:  BorderRadius.circular(12),
+                                child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),),
+                              ),
+                              SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
+                              Text('Amstel Bier')
+                            ],
+                          ),),
+                        ),
+                        buildTableRow(title: '₹ 250',topSpacing: 15),
+                        buildTableRow(title: '20',topSpacing: 15),
+                        buildTableRow(title: '₹ 5500',topSpacing: 15),
+                      ],
+                    ),
+                    
+                  ],
+                )
+                ),
+              ),
+                         ]
               ),
             )
           ],
