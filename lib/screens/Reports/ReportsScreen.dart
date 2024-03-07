@@ -119,21 +119,52 @@ String initialYear = DateTime.now().year.toString();
           incOrDec: '+ 39,900',
           imageAsset: "assets/images/reports-images/box.png"
           ),
+          SizedBox(width: mediaQueryHelper.getWidthPercentage(2),),
+          buildCardBody(
+          cardTitle:'Products',
+          cardSubtile:'₹ 5,50,000',
+          incOrDec: '+ 45,900',
+          imageAsset: "assets/images/reports-images/product-sales.png"
+          )
           ],
           ),
-          Table(
-             // border: TableBorder(bottom: BorderSide(width: 0.1)),
-                      children: [
-                        TableRow(
-                           children: [
-                            buildTableRow(title:'#',bottomSpacing: 10),
-                            buildTableRow(title:'Product' ,bottomSpacing: 10),
-                            buildTableRow(title:'Sales' ,bottomSpacing: 10),
-                            buildTableRow(title:'Revenue',bottomSpacing: 10 ),
+          SizedBox(height: mediaQueryHelper.getHeightPercentage(4)),
+                    SizedBox(
+            width: mediaQueryHelper.getHeightPercentage(150),
+            child: Table(
+               // border: TableBorder(bottom: BorderSide(width: 0.1)),
+                  children: [
+                    TableRow(
+                        children: [
+                        buildTableRow(title:'#',bottomSpacing: 10),
+                        buildTableRow(title:'Product' ,bottomSpacing: 10),
+                        buildTableRow(title:'Sales' ,bottomSpacing: 10),
+                        buildTableRow(title:'Revenue',bottomSpacing: 10 ),
+                    ],
+                  ),
+                ],
+              ),
+          ),
+          Expanded(
+            child: SizedBox(
+            height: mediaQueryHelper.getHeightPercentage(150),
+            child: ListView.builder(
+            itemCount: 11,
+            itemBuilder: (context,index)=>Table(
+                border: TableBorder(bottom: BorderSide(width: 0.1)),
+                children: [
+                  TableRow(
+                  children:[
+                    buildTableRow(title: '${index+1}',bottomSpacing: 15,topSpacing: 10),
+                    buildTableRow(title: 'Kingfisher Premium Beer',bottomSpacing: 15,topSpacing: 10),
+                    buildTableRow(title: '250',bottomSpacing: 15,topSpacing: 10),
+                    buildTableRow(title: '2500',bottomSpacing: 15,topSpacing: 10),
                   ],
-                ),
-              ],
-            )
+                  ),
+                ],
+              )),
+            ),
+          )
         ],
       ),
     );
@@ -161,13 +192,18 @@ String initialYear = DateTime.now().year.toString();
                 Column(
                 crossAxisAlignment:CrossAxisAlignment.start,
                 children: [
-                Container(
-                padding: EdgeInsets.all(3),
-                decoration: BoxDecoration(color: AppColors.textFieldBodyColor,
-                borderRadius: BorderRadius.circular(14)),
-                height: mediaQueryHelper.getHeightPercentage(3),
-                child: Image.asset(imageAsset,
-                color: AppColors.greyColor,)),
+                  CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: 12,
+                    child: Image.asset(imageAsset),
+                  ),
+                // Container(
+                // padding: EdgeInsets.all(3),
+                // decoration: BoxDecoration(color: AppColors.textFieldBodyColor,
+                // borderRadius: BorderRadius.circular(14)),
+                // height: mediaQueryHelper.getHeightPercentage(3),
+                // child: Image.asset(imageAsset,
+                // color: AppColors.greyColor,)),
                  Text(cardTitle,style: AppTypography.normalSmallText.copyWith(fontWeight: FontWeight.w500),),
                   ],
                 ),
