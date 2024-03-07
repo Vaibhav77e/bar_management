@@ -22,10 +22,10 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
   TextEditingController ageController = TextEditingController();
   TextEditingController genderController = TextEditingController();
   TextEditingController roleController = TextEditingController();
-    TextEditingController  passwordController = TextEditingController();
-   TextEditingController addressController = TextEditingController();
-   TextEditingController emergencyContactController = TextEditingController();
-   TextEditingController dateOfBirthController = TextEditingController();
+  TextEditingController  passwordController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController emergencyContactController = TextEditingController();
+  TextEditingController dateOfBirthController = TextEditingController();
 
 
   File? _image;
@@ -184,11 +184,9 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
                                  controller: dateOfBirthController,
                                  ),
                                  SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
-                            
                               ],
-                            ),
+                      ),
                     ),
-                                  
                 SizedBox(
                 width: mediaQueryHelper.getWidthPercentage(25),
                 child: Column(

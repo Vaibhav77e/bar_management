@@ -1,3 +1,4 @@
+import 'package:bar_management_system/extrapage.dart';
 import 'package:bar_management_system/screens/DrawerMenu/DrawerMenuScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
      home: HomeScreenPage(),
      // home: DrawerMenuScreen(),
-     //home: TestDashBoardScreen(),
+     //home: CreateNewStaffs(),
       routes: APP_ROUTES,
     );
   }
