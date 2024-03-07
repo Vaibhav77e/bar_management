@@ -109,7 +109,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     buildTableRow(title: 'Captain miller 4',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: 'Quantity',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: 'Total',bottomSpacing: 15,topSpacing: 10),
-                    Padding(padding: EdgeInsets.only(bottom:15,top: 10 ),
+                    Padding(padding: const EdgeInsets.only(bottom:15,top: 10 ),
                     child: CustomRoundedDropdown(
                       borderRadius: 24,
                       value: initalStatus,
@@ -125,15 +125,14 @@ class _OrdersScreenState extends State<OrdersScreen> {
                           value: value,
                           child: Text(value),
                         );
-                      }).toList() ,
+                      }).toList(),
                     ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top:10),
+                      padding:const EdgeInsets.only(top:10),
                       child: PopupMenuButton<Generate>(
                         initialValue: selectedItem,
-                        onSelected: 
-                        (Generate item) {
+                        onSelected: (Generate item) {
                           // setState(() {
                           //   selectedItem = item;
                           // });
@@ -178,17 +177,21 @@ class _OrdersScreenState extends State<OrdersScreen> {
 
 
   void showGenerateInvoiceDialog(){
-    MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
-    showDialog(context: context, builder: (context)=>AlertDialog(
-      backgroundColor: AppColors.whiteColor,
-      surfaceTintColor: Colors.transparent,
-      content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Invoice'),
-        ],
-      ),
-    ));
+    // MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
+    // showDialog(context: context, builder: (context)=>AlertDialog(
+    //   backgroundColor: AppColors.whiteColor,
+    //   surfaceTintColor: Colors.transparent,
+    //   content: Column(
+    //     crossAxisAlignment: CrossAxisAlignment.start,
+    //     children: [
+    //       Text('Invoice'),
+    //     ],
+    //   ),
+    // ));
+
+
+    // here call api to generate invoice's
+    
   }
 
   @override
