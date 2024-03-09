@@ -107,8 +107,8 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     buildTableRow(title: '342335233523',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: '2 min ago',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: 'Captain miller 4',bottomSpacing: 15,topSpacing: 10),
-                    buildTableRow(title: 'Quantity',bottomSpacing: 15,topSpacing: 10),
-                    buildTableRow(title: 'Total',bottomSpacing: 15,topSpacing: 10),
+                    buildTableRow(title: '8',bottomSpacing: 15,topSpacing: 10),
+                    buildTableRow(title: '₹ 1320',bottomSpacing: 15,topSpacing: 10),
                     Padding(padding: const EdgeInsets.only(bottom:15,top: 10 ),
                     child: CustomRoundedDropdown(
                       borderRadius: 24,

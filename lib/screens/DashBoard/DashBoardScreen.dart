@@ -40,13 +40,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                           Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,// const Icon(Icons.favorite,color: AppColors.greenColor,),
                           children: [
-                          buildCardBody(title: '2000+',subtitle:'Daily Happy Customers'),
+                          buildCardBody(title: '2000+',subtitle:'Daily Happy Customers',assetName:'assets/images/dashboard-images/heart.png'),
+                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1)),
+                          buildCardBody(title: '3456789',subtitle:'Stocks Bottles',assetName:'assets/images/dashboard-images/wine-bottle.png'),
                           SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: '3456789',subtitle:'Stocks Bottles'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert'),
+                          buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert',assetName:'assets/images/dashboard-images/save-water.png'),
                             ]
                           ),
                           ]
@@ -149,7 +149,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
           )
         );
   }
-  Widget buildCardBody({required String title,required String subtitle }){
+  Widget buildCardBody({required String title,required String subtitle,required String assetName}){
     MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
     return  Container(
                   height: mediaQueryHelper.getHeightPercentage(10),
@@ -167,7 +167,11 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5),),
                       CircleAvatar(
                         backgroundColor: AppColors.lightGreenColor,
-                        child: Icon(Icons.favorite,color: AppColors.greenColor,),
+                        child: Container(
+                        padding: const EdgeInsets.all(6),
+                        height: mediaQueryHelper.getHeightPercentage(4),
+                        child:Image.asset(assetName,color: AppColors.greenColor,)
+                        )
                       ),
                       SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5),),
                       Column(
