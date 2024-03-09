@@ -64,20 +64,20 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   ),
                   ExpansionTile(
                     collapsedIconColor:AppColors.whiteColor,
-                    iconColor :AppColors.testColor,
+                    iconColor :AppColors.whiteColor,
                     onExpansionChanged: (_){
-                      setState(() {
-                        isInventoryExpanded=!isInventoryExpanded;
-                      });
+                      // setState(() {
+                      //   isInventoryExpanded=!isInventoryExpanded;
+                      // });
                     },
                     collapsedTextColor:AppColors.testColor,
                     leading: Container(
                     padding: EdgeInsets.all(1),
                     height: mediaQueryHelper.getHeightPercentage(4),
                     child: Image.asset('assets/images/inventory-management.png',
-                    color:isInventoryExpanded==true?AppColors.testColor:AppColors.whiteColor)),
+                    color:AppColors.whiteColor)),
                     title: Text('Inventory',style: AppTypography.normalSmallText.copyWith(
-                    color:  isInventoryExpanded==true?AppColors.testColor:AppColors.whiteColor,
+                    color:  AppColors.whiteColor,
                     fontSize: 13,
                     overflow: TextOverflow.fade),),
                     children:<Widget>[
@@ -90,8 +90,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/add.png',
                         height: 3,
                         title: 'Add Products',
-                        textColor: index==1?AppColors.testColor:AppColors.whiteColor,
-                        imageColor: index==1?AppColors.testColor:AppColors.whiteColor
+                        textColor: index==1?AppColors.testColor:AppColors.expansionTileColor,
+                        imageColor: index==1?AppColors.testColor:AppColors.expansionTileColor
                       ),
                       TileComponent(
                         onTap:() {
@@ -102,8 +102,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/edit.png',
                         height: 3,
                         title: 'Edit Products',
-                        textColor: index==2?AppColors.testColor:AppColors.whiteColor,
-                        imageColor: index==2?AppColors.testColor:AppColors.whiteColor
+                        textColor: index==2?AppColors.testColor:AppColors.expansionTileColor,
+                        imageColor: index==2?AppColors.testColor:AppColors.expansionTileColor
                       ),
                     ]
                   ),
@@ -135,20 +135,20 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                   ),
                   ExpansionTile(
                     collapsedIconColor:AppColors.whiteColor,
-                    iconColor :AppColors.testColor,
+                    iconColor :AppColors.whiteColor,
                     onExpansionChanged: (_){
-                     setState(() {
-                        isStaffsExpanded= !isStaffsExpanded;
-                     });
+                    //  setState(() {
+                    //     isStaffsExpanded= !isStaffsExpanded;
+                    //  });
                     },
                     leading: Container(
                     padding: EdgeInsets.all(1),
                     height: mediaQueryHelper.getHeightPercentage(5),
                     child: Image.asset('assets/images/staff.png',
-                    color: isStaffsExpanded==true?AppColors.testColor:AppColors.whiteColor)),
+                    color: AppColors.whiteColor)),
                     title: Text('Staffs',
                     style: AppTypography.normalSmallText.copyWith(
-                    color:isStaffsExpanded==true?AppColors.testColor:AppColors.whiteColor,
+                    color:AppColors.whiteColor,
                     overflow: TextOverflow.fade,
                     fontSize:13,
                     )),
@@ -162,8 +162,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/add.png',
                         height: 3,
                         title: 'Add Staffs',
-                        textColor: index==5?AppColors.testColor:AppColors.whiteColor,
-                        imageColor: index==5?AppColors.testColor:AppColors.whiteColor
+                        textColor: index==5?AppColors.testColor:AppColors.expansionTileColor,
+                        imageColor: index==5?AppColors.testColor:AppColors.expansionTileColor
                       ),
                       TileComponent(
                         onTap:() {
@@ -174,8 +174,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/edit.png',
                         height: 3,
                         title: 'Edit Staffs',
-                        textColor: index==6?AppColors.testColor:AppColors.whiteColor,
-                        imageColor: index==6?AppColors.testColor:AppColors.whiteColor
+                        textColor: index==6?AppColors.testColor:AppColors.expansionTileColor,
+                        imageColor: index==6?AppColors.testColor:AppColors.expansionTileColor
                       ),
                     ],
                   ),
