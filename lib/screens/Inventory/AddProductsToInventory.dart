@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
+import 'package:bar_management_system/widgets/SearchBar/CustomSearchBar.dart';
 import 'package:bar_management_system/widgets/app_Text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -22,6 +23,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
   final TextEditingController discountController = TextEditingController();
   final TextEditingController discountType = TextEditingController();
   final TextEditingController productCategory = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
 
   String _selectedCategory = 'Select a category'; // Initial selected category
   String _selectProduct = 'Select a product';
@@ -65,17 +67,15 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  Text('Overview',style: AppTypography.smallHeading.copyWith(fontWeight: FontWeight.w600),),
-                  // to do this
-                  // add search bar
-                ]),
                 SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-                Text('Add Products',style: AppTypography.smallHeading.copyWith(
-                color:AppColors.menuBarColor,
-                fontWeight: FontWeight.w400),
+                Text('Add Products',style: AppTypography.mediumHeading.copyWith(
+                fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: mediaQueryHelper.getHeightPercentage(8)),
+                SizedBox(height: mediaQueryHelper.getHeightPercentage(4),),
+                SizedBox(
+                  width: mediaQueryHelper.getWidthPercentage(20),
+                child: CustomSearchBar(searchController: searchController)),
+                SizedBox(height: mediaQueryHelper.getHeightPercentage(5)),
                 Container(
                   height: mediaQueryHelper.getHeightPercentage(50),
                   width: mediaQueryHelper.getWidthPercentage(50),
@@ -109,7 +109,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                     ],
                   )
                 ),
-                SizedBox(height: mediaQueryHelper.getHeightPercentage(5)),
+                SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
                 Container(
                   height: mediaQueryHelper.getHeightPercentage(35),
                   width: mediaQueryHelper.getWidthPercentage(50),

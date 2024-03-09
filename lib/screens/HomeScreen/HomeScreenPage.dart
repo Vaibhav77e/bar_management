@@ -46,7 +46,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           SizedBox(
             width: 250, // Width of the locked sidebar
             child: Drawer(
-              backgroundColor: AppColors.menuBarColor,
+              backgroundColor: AppColors.primaryColor,
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: <Widget>[
@@ -59,25 +59,25 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     assetImage: 'assets/images/dashboard.png',
                     height: 3,
                     title: 'Dashboard',
-                    textColor: index==0?AppColors.greyColor :AppColors.whiteColor,
-                    imageColor: index==0?AppColors.greyColor :AppColors.whiteColor
+                    textColor: index==0?AppColors.testColor:AppColors.whiteColor,
+                    imageColor: index==0?AppColors.testColor:AppColors.whiteColor
                   ),
                   ExpansionTile(
                     collapsedIconColor:AppColors.whiteColor,
-                    iconColor : AppColors.greyColor ,
+                    iconColor :AppColors.testColor,
                     onExpansionChanged: (_){
                       setState(() {
                         isInventoryExpanded=!isInventoryExpanded;
                       });
                     },
-                    collapsedTextColor:AppColors.greyColor ,
+                    collapsedTextColor:AppColors.testColor,
                     leading: Container(
                     padding: EdgeInsets.all(1),
                     height: mediaQueryHelper.getHeightPercentage(4),
                     child: Image.asset('assets/images/inventory-management.png',
-                    color:isInventoryExpanded==true? AppColors.greyColor :AppColors.whiteColor)),
+                    color:isInventoryExpanded==true?AppColors.testColor:AppColors.whiteColor)),
                     title: Text('Inventory',style: AppTypography.normalSmallText.copyWith(
-                    color:  isInventoryExpanded==true? AppColors.greyColor :AppColors.whiteColor,
+                    color:  isInventoryExpanded==true?AppColors.testColor:AppColors.whiteColor,
                     fontSize: 13,
                     overflow: TextOverflow.fade),),
                     children:<Widget>[
@@ -90,8 +90,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/add.png',
                         height: 3,
                         title: 'Add Products',
-                        textColor: index==1?AppColors.greyColor :AppColors.whiteColor,
-                        imageColor: index==1?AppColors.greyColor :AppColors.whiteColor
+                        textColor: index==1?AppColors.testColor:AppColors.whiteColor,
+                        imageColor: index==1?AppColors.testColor:AppColors.whiteColor
                       ),
                       TileComponent(
                         onTap:() {
@@ -102,12 +102,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/edit.png',
                         height: 3,
                         title: 'Edit Products',
-                        textColor: index==2?AppColors.greyColor :AppColors.whiteColor,
-                        imageColor: index==2?AppColors.greyColor :AppColors.whiteColor
+                        textColor: index==2?AppColors.testColor:AppColors.whiteColor,
+                        imageColor: index==2?AppColors.testColor:AppColors.whiteColor
                       ),
                     ]
                   ),
-                   SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                  SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                   SizedBox(width: mediaQueryHelper.getHeightPercentage(2),),
                   TileComponent(
                     onTap:() {
@@ -118,8 +118,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     assetImage: 'assets/images/order.png',
                     height: 4,
                     title: 'Orders',
-                    textColor: index==3?AppColors.greyColor :AppColors.whiteColor,
-                    imageColor: index==3?AppColors.greyColor :AppColors.whiteColor
+                    textColor: index==3?AppColors.testColor:AppColors.whiteColor,
+                    imageColor: index==3?AppColors.testColor:AppColors.whiteColor
                   ),
                   TileComponent(
                     onTap:() {
@@ -130,12 +130,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     assetImage: 'assets/images/payment-method.png',
                     height: 4,
                     title: 'Payments',
-                    textColor: index==4?AppColors.greyColor :AppColors.whiteColor,
-                    imageColor: index==4?AppColors.greyColor :AppColors.whiteColor
+                    textColor: index==4?AppColors.testColor:AppColors.whiteColor,
+                    imageColor: index==4?AppColors.testColor:AppColors.whiteColor
                   ),
                   ExpansionTile(
                     collapsedIconColor:AppColors.whiteColor,
-                    iconColor : AppColors.whiteColor,
+                    iconColor :AppColors.testColor,
                     onExpansionChanged: (_){
                      setState(() {
                         isStaffsExpanded= !isStaffsExpanded;
@@ -145,10 +145,10 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     padding: EdgeInsets.all(1),
                     height: mediaQueryHelper.getHeightPercentage(5),
                     child: Image.asset('assets/images/staff.png',
-                    color: isStaffsExpanded==true? AppColors.greyColor :AppColors.whiteColor)),
+                    color: isStaffsExpanded==true?AppColors.testColor:AppColors.whiteColor)),
                     title: Text('Staffs',
                     style: AppTypography.normalSmallText.copyWith(
-                    color:isStaffsExpanded==true? AppColors.greyColor :AppColors.whiteColor,
+                    color:isStaffsExpanded==true?AppColors.testColor:AppColors.whiteColor,
                     overflow: TextOverflow.fade,
                     fontSize:13,
                     )),
@@ -162,10 +162,9 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/add.png',
                         height: 3,
                         title: 'Add Staffs',
-                        textColor: index==5?AppColors.greyColor :AppColors.whiteColor,
-                        imageColor: index==5?AppColors.greyColor :AppColors.whiteColor
+                        textColor: index==5?AppColors.testColor:AppColors.whiteColor,
+                        imageColor: index==5?AppColors.testColor:AppColors.whiteColor
                       ),
-                      
                       TileComponent(
                         onTap:() {
                           _changeContent(EditStaffs());
@@ -175,12 +174,12 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                         assetImage: 'assets/images/edit.png',
                         height: 3,
                         title: 'Edit Staffs',
-                        textColor: index==6?AppColors.greyColor :AppColors.whiteColor,
-                        imageColor: index==6?AppColors.greyColor :AppColors.whiteColor
+                        textColor: index==6?AppColors.testColor:AppColors.whiteColor,
+                        imageColor: index==6?AppColors.testColor:AppColors.whiteColor
                       ),
                     ],
                   ),
-                   SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                  SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                   TileComponent(
                     onTap:() {
                       _changeContent(ReportScreen());
@@ -190,8 +189,8 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     assetImage: 'assets/images/report.png',
                     height: 4,
                     title: 'Reports',
-                    textColor: index==7?AppColors.greyColor :AppColors.whiteColor,
-                    imageColor: index==7?AppColors.greyColor :AppColors.whiteColor
+                    textColor: index==7?AppColors.testColor:AppColors.whiteColor,
+                    imageColor: index==7?AppColors.testColor:AppColors.whiteColor
                   ),
                 ],
               ),

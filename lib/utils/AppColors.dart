@@ -21,4 +21,6 @@ class AppColors{
   static const Color vineGreenColor = Color(0xFF416D19);
   static const Color lightGreenColor = Color(0xFFD4E7C5);
   static const Color navyBlue  = Color(0xFF000080);
+  static const Color testColor = Color(0xFFFFD700);
+  static const Color testColor2 = Color(0xFF00008B);
 }

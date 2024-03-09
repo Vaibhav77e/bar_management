@@ -107,40 +107,39 @@ class _EditDialogBoxState extends State<EditDialogBox> {
                         SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                         const Text('Product Category',style: AppTypography.normalSmallText),
                         SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
-                    SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
-                      child:  CustomRoundedDropdown(
+                        SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
+                        child:  CustomRoundedDropdown(
                         borderColor: Colors.transparent,
                         dropDownBodyColor:AppColors.textFieldBodyColor,
                         height: mediaQueryHelper.getHeightPercentage(0.8),
-                items:  productsCategory.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  alignment: Alignment.center,
-                  child: Text(  
-                    value,
-                    style: AppTypography.normalText,
-                  ),
-                );
-              }).toList(), 
-              value: produts, 
-              onChanged: (newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    produts = newValue;
-                    print('produts Value: ' + produts); 
-                  });
-                }
-              }),
-
+                      items:  productsCategory.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        alignment: Alignment.center,
+                        child: Text(  
+                          value,
+                          style: AppTypography.normalText,
+                        ),
+                      );
+                      }).toList(), 
+                      value: produts, 
+                      onChanged: (newValue) {
+                        if (newValue != null) {
+                          setState(() {
+                            produts = newValue;
+                            print('produts Value: ' + produts); 
+                          });
+                        }
+                      }),
                       ),
-
+                      // Discount
                       const Text('Discount',style: AppTypography.normalText,),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
                       SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
                       child: AppTextFieldForm(labelText: 'Discount', 
                       controller: discountController)
                       ),
-                      
+                      // Discount Type
                       const Text('DiscountType',style: AppTypography.normalText,),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
                       SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
@@ -166,7 +165,7 @@ class _EditDialogBoxState extends State<EditDialogBox> {
                 }
               }),
 
-                      )
+                )
 
                     ],
                   ),
@@ -242,7 +241,7 @@ class _EditDialogBoxState extends State<EditDialogBox> {
 
 
 
-    Widget ConstContainerBody({
+  Widget ConstContainerBody({
     double height = 50,
     double width = 25,
     verticalPadding = 2,

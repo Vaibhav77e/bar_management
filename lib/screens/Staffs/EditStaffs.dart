@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
@@ -7,7 +6,6 @@ import 'package:bar_management_system/widgets/SearchBar/CustomSearchBar.dart';
 import 'package:bar_management_system/widgets/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../widgets/app_Text_field.dart';
 
 class EditStaffs extends StatefulWidget {
@@ -37,7 +35,7 @@ class _EditStaffsState extends State<EditStaffs> {
     });
   }
 
- TextEditingController nameController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController ageController = TextEditingController();
@@ -47,7 +45,6 @@ class _EditStaffsState extends State<EditStaffs> {
   TextEditingController addressController = TextEditingController();
   TextEditingController emergencyContactController = TextEditingController();
   TextEditingController dateOfBirthController = TextEditingController();
-
   TextEditingController searchController = TextEditingController();
 
 
@@ -213,7 +210,7 @@ class _EditStaffsState extends State<EditStaffs> {
                         Text('Gender: Male'),
                         ],
                       ),
-                        ]
+                      ]
                       ),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(5)),
                       AppButton(onTap: showEditDialog, text: 'Edit')
@@ -231,11 +228,9 @@ class _EditStaffsState extends State<EditStaffs> {
   }
 
   showEditDialog(){
-
     MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     showDialog(
-      
-      context: context, 
+      context: context,
       builder: (context)=>AlertDialog(
       backgroundColor: AppColors.whiteColor,
       surfaceTintColor: Colors.transparent,
@@ -309,12 +304,19 @@ class _EditStaffsState extends State<EditStaffs> {
             // pricing and stocking
             ConstContainerBody(
                     width: double.infinity,
-                    height: 60,
+                    height: mediaQueryHelper.getHeightPercentage(9),
                     // 2nd card
                     child:Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                          SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                           const Text('Gender',
+                          style: AppTypography.normalSmallText),
+                          SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
+                          AppTextFieldForm(
+                          labelText: 'Gender',
+                           controller: genderController,
+                           ),
+                          SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
                             const Text('Password',
                             style: AppTypography.normalSmallText),
                             SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
