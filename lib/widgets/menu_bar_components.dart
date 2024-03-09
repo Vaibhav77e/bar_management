@@ -7,9 +7,9 @@ import '../utils/MediaqueryHelper.dart';
 class MenuBarComponent extends StatelessWidget {
    MenuBarComponent({Key? key,required this.assetName,required this.title,this.onTap});
 
-   String title ;
-   String assetName;
-   void Function()? onTap;
+   final String title ;
+   final String assetName;
+   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {

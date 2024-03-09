@@ -1,12 +1,7 @@
-import 'package:bar_management_system/extrapage.dart';
-import 'package:bar_management_system/screens/DrawerMenu/DrawerMenuScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'routes/route.dart';
-import 'screens/DashBoard/DashBoardScreen.dart';
 import 'screens/HomeScreen/HomeScreenPage.dart';
-import 'screens/test.dart';
 
 void main() {
   runApp(const MyApp());

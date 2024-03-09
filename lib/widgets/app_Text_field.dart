@@ -4,16 +4,17 @@ import 'package:flutter/services.dart';
 
 import '../utils/appColors.dart';
 
+
 class AppTextFieldForm extends StatelessWidget{
-  TextEditingController? controller;
-  String? labelText;
-  TextInputType? keyboardType;
-  int? maxLength;
-  void Function(String)? onChanged;
-  TextCapitalization textCapitalization;
-  int? maxLines;
-  Widget? suffixIcon;
-  bool? isEnabled;
+  final TextEditingController? controller;
+  final String? labelText;
+  final TextInputType? keyboardType;
+  final int? maxLength;
+  final void Function(String)? onChanged;
+  final TextCapitalization textCapitalization;
+  final int? maxLines;
+  final Widget? suffixIcon;
+  final bool? isEnabled;
 
   AppTextFieldForm({
     required this.labelText,

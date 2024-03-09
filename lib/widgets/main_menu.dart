@@ -5,6 +5,7 @@ import '../utils/AppColors.dart';
 import '../utils/MediaqueryHelper.dart';
 
 
+// ignore: must_be_immutable
 class MainMenu extends StatelessWidget {
   
    MainMenu({Key? key,

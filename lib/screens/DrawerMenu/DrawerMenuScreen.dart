@@ -1,12 +1,8 @@
-import 'package:bar_management_system/screens/DashBoard/DashBoardScreen.dart';
-import 'package:bar_management_system/screens/Inventory/AddProductsToInventory.dart';
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
 import 'package:bar_management_system/widgets/main_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../../widgets/menu_bar_components.dart';
 
 

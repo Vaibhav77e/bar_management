@@ -180,7 +180,7 @@ class _EditStaffsState extends State<EditStaffs> {
                         border: Border.all(color: AppColors.textFieldBodyColor),
                         borderRadius: BorderRadius.circular(12)
                       ),
-                      child: Image.asset('assets/images/inventory-management.png'),
+                      child: Image.asset('assets/images/staffs-screen-images/user.png'),
                     ),
                     SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                     Row(

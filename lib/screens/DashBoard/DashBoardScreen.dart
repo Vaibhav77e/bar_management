@@ -1,9 +1,8 @@
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
 import 'package:flutter/material.dart';
-
 import '../../typography/Apptypography.dart';
 import '../../utils/AppColors.dart';
-import '../../widgets/main_menu.dart';
+
 
 class DashBoardScreen  extends StatefulWidget {
   const DashBoardScreen ({Key? key}) : super(key: key);
@@ -51,11 +50,13 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           ),
                           ]
                         ),
+                        SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                           Row(
                           children: [
                             Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
                           ],
                         ),
+                        SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                         SizedBox(
                         width: mediaQueryHelper.getWidthPercentage(80),
                         child: Column(
