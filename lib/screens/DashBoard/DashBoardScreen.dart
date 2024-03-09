@@ -99,7 +99,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                 color: AppColors.greyColor,
                                 borderRadius: BorderRadius.circular(12)),
                                 child: ClipRRect(borderRadius:  BorderRadius.circular(12),
-                                child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),),
+                                child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),
+                                // child: Image.asset('assets/images/replace-images/amstel_bier.png')
+                                ),
                               ),
                               SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
                               Text('Amstel Bier')
