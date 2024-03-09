@@ -78,7 +78,7 @@ String initialYear = DateTime.now().year.toString();
                     setState(() {
                       initialMonth = newValue!;
                     });
-                  } ),
+                  }),
               ),
               SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
               // Year

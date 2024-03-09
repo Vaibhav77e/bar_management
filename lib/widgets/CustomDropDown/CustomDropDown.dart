@@ -11,6 +11,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
   final Color borderColor;
   final Color dropdownColor;
   final double height;
+  final Color dropDownBodyColor;
 
   const CustomRoundedDropdown({
     Key? key,
@@ -21,6 +22,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
     this.height = 5,
     this.borderColor = AppColors.textGreyColor,
     this.dropdownColor = AppColors.whiteColor,
+    this.dropDownBodyColor = AppColors.whiteColor,
   }) : super(key: key);
 
   @override
@@ -30,7 +32,7 @@ class CustomRoundedDropdown<T> extends StatelessWidget {
       height: mediaQueryHelper.getHeightPercentage(height),
       padding: EdgeInsets.symmetric(horizontal:mediaQueryHelper.getWidthPercentage(2)),
       decoration: BoxDecoration(
-        color: AppColors.whiteColor,
+        color: dropDownBodyColor,
         borderRadius: BorderRadius.circular(borderRadius),
         border: Border.all(color: borderColor),
       ),

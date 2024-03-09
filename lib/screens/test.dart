@@ -1,260 +1,105 @@
-import 'package:bar_management_system/utils/MediaqueryHelper.dart';
 import 'package:flutter/material.dart';
 
-import '../../typography/Apptypography.dart';
-import '../../utils/AppColors.dart';
-
-
-class TestDashBoardScreen  extends StatefulWidget {
-  const TestDashBoardScreen ({Key? key}) : super(key: key);
+class DropdownDemo extends StatefulWidget {
+  const DropdownDemo({Key? key}) : super(key: key);
 
   @override
-  State<TestDashBoardScreen> createState() => _TestDashBoardScreenState();
+  State<DropdownDemo> createState() => _DropdownDemoState();
 }
 
-class _TestDashBoardScreenState extends State<TestDashBoardScreen> {
+class _DropdownDemoState extends State<DropdownDemo> {
+  String dropdownValue = 'Dog';
+  List<String> options = ['Dog', 'Cat', 'Tiger', 'Lion'];
+
   @override
   Widget build(BuildContext context) {
-    MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     return Scaffold(
-
-      body: Padding(
-          padding:  EdgeInsets.symmetric(
-                  horizontal: mediaQueryHelper.getWidthPercentage(2),
-                  vertical:mediaQueryHelper.getHeightPercentage(2)
-                  ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-                                  SizedBox(height: mediaQueryHelper.getHeightPercentage(5),),
-                    Text('Dashboard',style: AppTypography.mediumHeading,),
-                  SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: mediaQueryHelper.getWidthPercentage(70),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                          buildCardBody(title: '2000+',subtitle:'Daily Happy Customers'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: '3456789',subtitle:'Stocks Bottles'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: '15000+',subtitle:'Sales Bottle'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert'),
-                            ]
-                          ),
-                          ]
-                        ),
-                          Row(
-                          children: [
-                            Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
-                          ],
-                        ),
-                        SizedBox(
-                        width: mediaQueryHelper.getWidthPercentage(80),
-                        child: Column(
-                          children: [
-                          Table(
-                          border: TableBorder(bottom: BorderSide(width: 0.1)),
-                                  children: [
-                                    TableRow(
-                                       children: [
-                                        buildTableRow(title:'Order Id',bottomSpacing: 10),
-                                        buildTableRow(title:'Product' ,bottomSpacing: 10),
-                                        buildTableRow(title:'Price' ,bottomSpacing: 10),
-                                        buildTableRow(title:'Quantity',bottomSpacing: 10 ),
-                                        buildTableRow(title:'Total Amount',bottomSpacing: 10 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: mediaQueryHelper.getHeightPercentage(60),
-                        width: mediaQueryHelper.getWidthPercentage(80),
-                        child:  ListView.builder(
-                                        itemCount: 10,
-                                        itemBuilder: (context,index)=>
-                                        Table(
-                                          //border: TableBorder(bottom: BorderSide(width:0.2)),
-                                          children: [
-                                            TableRow(
-                                              
-                                              children: [
-                        buildTableRow(title: '3423423',topSpacing: 15),
-                        Padding(
-                          padding:  EdgeInsets.only(bottom: mediaQueryHelper.getHeightPercentage(1),top: mediaQueryHelper.getHeightPercentage(1)),
-                          child: SizedBox(
-                          width: mediaQueryHelper.getWidthPercentage(20),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: mediaQueryHelper.getHeightPercentage(8),
-                                decoration: BoxDecoration(
-                                color: AppColors.greyColor,
-                                borderRadius: BorderRadius.circular(12)),
-                                child: ClipRRect(borderRadius:  BorderRadius.circular(12),
-                                child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),),
-                              ),
-                              SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
-                              Text('Amstel Bier')
-                            ],
-                          ),),
-                        ),
-                        buildTableRow(title: '₹ 250',topSpacing: 15),
-                        buildTableRow(title: '20',topSpacing: 15),
-                        buildTableRow(title: '₹ 5500',topSpacing: 15),
-                                              ],
-                                            ),
-                                            
-                                          ],
-                                        )
-                                        ),
-                        )
-                          ]
-                        ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: mediaQueryHelper.getWidthPercentage(2),),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: mediaQueryHelper.getHeightPercentage(10)),
-                        Text('Top Sellers of the Week',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
-                        topSellerCard(assetName: 'assets/images/replace-images/kingfisher_ultra.png',
-                        price: '130',
-                        title: 'Kingfisher Strong',
-                        unitsSold: '5000'
-                        ),
-                        topSellerCard(assetName: 'assets/images/replace-images/heineken.png',
-                        price: '135',
-                        title: 'Heineken',
-                        unitsSold: '4500'
-                        ),
-                        topSellerCard(assetName: 'assets/images/replace-images/Kingfisher.png',
-                        price: '170',
-                        title: 'KKingfisher Ultra ',
-                        unitsSold: '4000'
-                        ),
-                      ],
-                    ),
-                ],
+      appBar: AppBar(),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Open Dialog'),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => DropdownDialog(
+                currentValue: dropdownValue,
+                options: options,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                  });
+                },
               ),
-            ],
-          )
+            );
+          },
         ),
+      ),
     );
   }
+}
 
-  Widget buildCardBody({required String title,required String subtitle }){
-    MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
-    return  Container(
-                  height: mediaQueryHelper.getHeightPercentage(10),
-                  width: mediaQueryHelper.getWidthPercentage(16),
-                  decoration: BoxDecoration(
-                    border: Border.all( color: AppColors.vineGreenColor,),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
-                      bottomLeft: Radius.circular(16)
-                      )
-                  ),
-                  child: Row(
-                    children: [
-                      SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5),),
-                      CircleAvatar(
-                        backgroundColor: AppColors.lightGreenColor,
-                        child: Icon(Icons.favorite,color: AppColors.greenColor,),
-                      ),
-                      SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5),),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: mediaQueryHelper.getWidthPercentage(12),
-                            child: Text(title,style: AppTypography.normalText.copyWith(fontWeight: FontWeight.w700,fontSize: 17),)),
-                          SizedBox(
-                             width: mediaQueryHelper.getWidthPercentage(12),
-                            child: Text(subtitle,style: AppTypography.normalSmallText.copyWith(fontWeight: FontWeight.w600),))
-                        ],
-                      )
-                    ],
-                  ),
-                );
+class DropdownDialog extends StatefulWidget {
+  final String currentValue;
+  final List<String> options;
+  final ValueChanged<String> onChanged;
+
+  const DropdownDialog({
+    required this.currentValue,
+    required this.options,
+    required this.onChanged,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _DropdownDialogState createState() => _DropdownDialogState();
+}
+
+class _DropdownDialogState extends State<DropdownDialog> {
+  late String _dropdownValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _dropdownValue = widget.currentValue;
   }
 
-  Widget buildTableRow({
-  double bottomSpacing=0,
-  double topSpacing=0,
-  double rightSpacing=0,
-  double leftSpacing=0,
-  TextAlign? textAlign,
-  required String title}){
-    return Padding(
-          padding: EdgeInsets.only(
-          bottom:bottomSpacing,
-          top: topSpacing,
-          right: rightSpacing,
-          left: leftSpacing
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Choose an option'),
+          SizedBox(height: 20),
+          DropdownButton<String>(
+            value: _dropdownValue,
+            items: widget.options.map((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(
+                  value,
+                  style: TextStyle(fontSize: 20),
+                ),
+              );
+            }).toList(),
+            onChanged: (newValue) {
+              if (newValue != null) {
+                setState(() {
+                  _dropdownValue = newValue;
+                });
+                widget.onChanged(newValue);
+              }
+            },
           ),
-          child: Text(title,textAlign:textAlign,),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Close'),
+          ),
+        ],
+      ),
     );
-  }
-
-  Widget topSellerCard({
-    required String assetName,
-    required String title,
-    required String price,
-    required String unitsSold
-  }){
-    MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
-    return  Card(
-                          child: Padding( 
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  
-                                  children: [
-                                    Container(
-                                      height: mediaQueryHelper.getHeightPercentage(16),
-                                      width: mediaQueryHelper.getWidthPercentage(8),
-                                      decoration: BoxDecoration(
-                                        color: AppColors.cardBackgroundColor,
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(12),
-                                      child: Image.asset(assetName,fit: BoxFit.cover,)),
-                                    ),
-                                    SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                    Text(title),
-                                    Text('₹ $price'),
-                                    const Text('No. of Units Sold'),
-                                    Text(unitsSold)],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
   }
 }
