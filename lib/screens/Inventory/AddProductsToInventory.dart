@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
-import 'package:bar_management_system/widgets/SearchBar/CustomSearchBar.dart';
 import 'package:bar_management_system/widgets/app_Text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
