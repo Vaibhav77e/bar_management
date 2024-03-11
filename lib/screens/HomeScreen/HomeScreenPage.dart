@@ -21,12 +21,11 @@ class HomeScreenPage extends StatefulWidget {
 class _HomeScreenPageState extends State<HomeScreenPage> {
   Widget _currentWidget = DashBoardScreen();
 
-  int index=0;
-
   bool isInventoryExpanded = false;
   bool isStaffsExpanded = false;
 
- 
+
+  int index=0;
 
   void _changeContent(Widget newContent) {
     setState(() {
@@ -42,6 +41,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
     return Scaffold(
       backgroundColor: AppColors.cardBackgroundColor,
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SizedBox(
             width: 250, // Width of the locked sidebar
@@ -208,7 +208,9 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
   }
 
   Widget TileComponent({double height=4,Color? imageColor=AppColors.whiteColor,Color? textColor=AppColors.whiteColor,
-  required void Function()? onTap,required String title,required String assetImage, double? fontSize=12,Color? selectedColor}){
+  required void Function()? onTap,required String title,required String assetImage, 
+  double? fontSize=12,
+  Color? selectedColor,FontWeight? fontWeight = FontWeight.normal,}){
     MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     return Padding(
       padding:  EdgeInsets.only(bottom:mediaQueryHelper.getHeightPercentage(2)),
@@ -224,7 +226,11 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
           children: [
            SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
             Text(title,
-            style: AppTypography.normalSmallText.copyWith(color: textColor,overflow: TextOverflow.fade,fontSize:fontSize )),
+            style: AppTypography.normalSmallText.copyWith(
+            color: textColor,
+            overflow: TextOverflow.fade,fontSize:fontSize,
+            fontWeight:fontWeight
+            )),
           ],
         ),
         onTap: onTap,

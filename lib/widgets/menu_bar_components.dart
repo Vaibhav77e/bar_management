@@ -5,11 +5,13 @@ import '../utils/AppColors.dart';
 import '../utils/MediaqueryHelper.dart';
 
 class MenuBarComponent extends StatelessWidget {
-   MenuBarComponent({Key? key,required this.assetName,required this.title,this.onTap});
+   MenuBarComponent({Key? key,required this.assetName,required this.title,this.onTap,this.color=AppColors.whiteColor});
 
    final String title ;
    final String assetName;
    final void Function()? onTap;
+   Color? color;
+   Color? imageColor;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,8 @@ class MenuBarComponent extends StatelessWidget {
     return ListTile(
               leading:SizedBox(
                  height: mediaQueryHelper.getHeightPercentage(3),
-                child: Image.asset(assetName)),
-              title: Text(title,style: AppTypography.normalMediumText.copyWith(color: AppColors.whiteColor),),
+                child: Image.asset(assetName,color:imageColor)),
+              title: Text(title,style: AppTypography.normalSmallText.copyWith(color: color),),
               onTap: onTap,
     );
     
