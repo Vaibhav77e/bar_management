@@ -158,7 +158,6 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
                                  controller: addressController,
                                  ),
                                  SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
-                            
                               ],
                             ),
                     ),
@@ -168,11 +167,11 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-                                  const Text('role',
+                                  const Text('Role',
                                 style: AppTypography.normalSmallText),
                                 SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
                                 AppTextFieldForm(
-                                labelText: 'role',
+                                labelText: 'Role',
                                 controller: roleController,
                                 ),
                                 SizedBox(height: mediaQueryHelper.getHeightPercentage(2)),
@@ -205,7 +204,7 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
                           AppTextFieldForm(
                           labelText: 'Gender',
                            controller: genderController,
-                           ),            
+                           ),
                         ],
                       ),
               ),

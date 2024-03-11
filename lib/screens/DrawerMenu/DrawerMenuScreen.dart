@@ -1,6 +1,7 @@
-import 'package:bar_management_system/extrapage.dart';
+
 import 'package:bar_management_system/screens/Inventory/AddProductsToInventory.dart';
 import 'package:bar_management_system/screens/Inventory/EditInventoryProducts.dart';
+import 'package:bar_management_system/screens/Staffs/CreateNewStaffs.dart';
 import 'package:bar_management_system/typography/Apptypography.dart';
 import 'package:bar_management_system/utils/AppColors.dart';
 import 'package:bar_management_system/utils/MediaqueryHelper.dart';
@@ -24,8 +25,8 @@ class DrawerMenuScreen extends StatefulWidget {
 class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
   int i=0;
 
-    int index=0;
-     Widget _currentWidget = DashBoardScreen();
+  int index=0;
+  Widget _currentWidget = DashBoardScreen();
 
   void _changeContent(Widget newContent) {
     setState(() {
@@ -55,7 +56,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                       children: <Widget>[
                   SizedBox(height: mediaQueryHelper.getHeightPercentage(8),),
                   TileComponent(onTap:() {
-                      _changeContent(DashBoardScreen());
+                      _changeContent(const DashBoardScreen());
                       index=0;
                       //print("index : $index");
                     },
@@ -86,7 +87,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                     children:<Widget>[
                       TileComponent(
                         onTap:() {
-                          _changeContent(AddProductsToInventory());
+                          _changeContent(const AddProductsToInventory());
                           index=1;
                           //print("index : $index");
                         },
@@ -98,7 +99,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                       ),
                       TileComponent(
                         onTap:() {
-                          _changeContent(EditInventoryProducts());
+                          _changeContent(const EditInventoryProducts());
                           index=2;
                           //print("index : $index");
                         },
@@ -197,9 +198,22 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                   ),
                 ],
                     ),
+                    // logout button
                     GestureDetector(
                     onTap: (){},
-                    child: Container(child: Text('Logout',style: AppTypography.normalText.copyWith(color: AppColors.whiteColor),)))
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                      horizontal: mediaQueryHelper.getWidthPercentage(4),
+                      vertical: mediaQueryHelper.getHeightPercentage(0.4),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border:Border.all(color: AppColors.textFieldBodyColor)
+                      ),
+                    child: Text(
+                    'Logout',style: AppTypography.normalText.copyWith(color: AppColors.whiteColor),
+                    textAlign: TextAlign.center,
+                    )))
                   ],
                 ),
               ),

@@ -83,7 +83,7 @@ class _HomeScreenPageState extends State<HomeScreenPage> {
                     children:<Widget>[
                       TileComponent(
                         onTap:() {
-                          _changeContent(AddProductsToInventory());
+                          _changeContent(const AddProductsToInventory());
                           index=1;
                           //print("index : $index");
                         },

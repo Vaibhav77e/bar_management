@@ -177,14 +177,14 @@ import '../../typography/Apptypography.dart';
 import '../../utils/AppColors.dart';
 import '../../widgets/app_Text_field.dart';
 
-class CreateNewStaffs extends StatefulWidget {
-  const CreateNewStaffs({Key? key}) : super(key: key);
+class ExtraPage extends StatefulWidget {
+  const ExtraPage({Key? key}) : super(key: key);
 
   @override
-  State<CreateNewStaffs> createState() => _CreateNewStaffsState();
+  State<ExtraPage> createState() => _ExtraPageState();
 }
 
-class _CreateNewStaffsState extends State<CreateNewStaffs> {
+class _ExtraPageState extends State<ExtraPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -218,7 +218,7 @@ class _CreateNewStaffsState extends State<CreateNewStaffs> {
   Widget build(BuildContext context) {
     MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(

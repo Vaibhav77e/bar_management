@@ -8,6 +8,8 @@ import 'package:bar_management_system/widgets/app_Text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../widgets/CustomDropDown/CustomDropDown.dart';
+
 class AddProductsToInventory extends StatefulWidget {
   const AddProductsToInventory({Key? key}) : super(key: key);
 
@@ -23,14 +25,14 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
   final TextEditingController discountController = TextEditingController();
   final TextEditingController discountType = TextEditingController();
   final TextEditingController productCategory = TextEditingController();
-  final TextEditingController searchController = TextEditingController();
+  
 
-  String _selectedCategory = 'Select a category'; // Initial selected category
-  String _selectProduct = 'Select a product';
+  String _selectDiscountType = 'N/A'; // Initial selected category
+  String _selectProductCategory = 'Alcohol';
 
   // List of available categories
-  final List<String> _categories = ['Category 1', 'Category 2', 'Category 3'];
-  final List<String> _productCategories = ['Product Category 1', 'Product Category 2', 'Product Category 3'];
+  final List<String> _discountType = ['N/A','Category 1', 'Category 2', 'Category 3'];
+  final List<String> _productCategories = ['Alcohol','Product Category 1', 'Product Category 2', 'Product Category 3','N/A'];
 
   // to upload images (now preview mode)
 
@@ -71,10 +73,6 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                 Text('Add Products',style: AppTypography.mediumHeading.copyWith(
                 fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: mediaQueryHelper.getHeightPercentage(4),),
-                SizedBox(
-                  width: mediaQueryHelper.getWidthPercentage(20),
-                child: CustomSearchBar(searchController: searchController)),
                 SizedBox(height: mediaQueryHelper.getHeightPercentage(5)),
                 Container(
                   height: mediaQueryHelper.getHeightPercentage(50),
@@ -173,34 +171,28 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                             const Text('DiscountType',style: AppTypography.normalText,),
                             SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
                             SizedBox(width: mediaQueryHelper.getWidthPercentage(22),
-                            child: GestureDetector(
-                               onTap: () {
-                              // Show the PopupMenuButton
-                              showMenu<String>(
-                                context: context,
-                                position: RelativeRect.fromLTRB(300, 900, 290, 0),
-                                items: _categories.map((String category) {
-                                  return PopupMenuItem<String>(
-                                    value: category,
-                                    child: Text(category),
-                                  );
-                                }).toList(),
-                              ).then((value) {
-                                if (value != null) {
-                                  setState(() {
-                                    _selectedCategory = value;
-                                    discountType.text = _selectedCategory;
-                                  });
-                                }
-                              });
-                            },
-                              child: AppTextFieldForm(
-                              labelText: 'Stocks', 
-                              controller: stockController,
-                              isEnabled: false,
-                              suffixIcon: const Icon(Icons.keyboard_arrow_down,),
+                            child: CustomRoundedDropdown(
+                            borderColor: Colors.transparent,
+                            dropDownBodyColor:AppColors.textFieldBodyColor,
+                            height: mediaQueryHelper.getHeightPercentage(0.8),
+                            items:  _discountType.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              alignment: Alignment.center,
+                              child: Text(  
+                                value,
+                                style: AppTypography.normalText,
                               ),
-                            )
+                            );
+                          }).toList(),
+                           value: _selectDiscountType, onChanged: (newValue) {
+                            if (newValue != null) {
+                              setState(() {
+                                _selectDiscountType = newValue;
+                                print('Drop Down Value: $_selectDiscountType'); 
+                              });
+                            }
+                            }),
                             ),
                           ],
                         ),
@@ -268,34 +260,57 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
                       const Text('Product Category',style: AppTypography.normalSmallText),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
-                      GestureDetector(
-                        onTap: () {
-                              // Show the PopupMenuButton
-                              showMenu<String>(
-                                context: context,
-                                position: RelativeRect.fromLTRB(500, 800, 0, 100),
-                                items: _productCategories.map((String category) {
-                                  return PopupMenuItem<String>(
-                                    value: category,
-                                    child: Text(category),
-                                  );
-                                }).toList(),
-                              ).then((value) {
-                                if (value != null) {
-                                  setState(() {
-                                    _selectProduct = value;
-                                    productCategory.text = _selectProduct;
-                                  });
-                                }
+                      CustomRoundedDropdown(
+                            borderColor: Colors.transparent,
+                            dropDownBodyColor:AppColors.textFieldBodyColor,
+                            height: mediaQueryHelper.getHeightPercentage(0.8),
+                            items:  _productCategories.map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              alignment: Alignment.center,
+                              child: Text(
+                                value,
+                                style: AppTypography.normalText,
+                              ),
+                            );
+                          }).toList(),
+                           value: _selectProductCategory, 
+                           onChanged: (newValue) {
+                            if (newValue != null) {
+                              setState(() {
+                                _selectProductCategory = newValue;
+                                print('Drop Down Value: $_selectProductCategory'); 
                               });
-                            },
-                        child: AppTextFieldForm(
-                        labelText: 'Product Category',
-                        controller: productCategory,
-                        isEnabled: false,
-                        suffixIcon: Icon(Icons.keyboard_arrow_down),
-                        ),
-                      )
+                            }
+                            }),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //         // Show the PopupMenuButton
+                      //         showMenu<String>(
+                      //           context: context,
+                      //           position: RelativeRect.fromLTRB(500, 800, 0, 100),
+                      //           items: _productCategories.map((String category) {
+                      //             return PopupMenuItem<String>(
+                      //               value: category,
+                      //               child: Text(category),
+                      //             );
+                      //           }).toList(),
+                      //         ).then((value) {
+                      //           if (value != null) {
+                      //             setState(() {
+                      //               _selectProductCategory = value;
+                      //               productCategory.text = _selectProductCategory;
+                      //             });
+                      //           }
+                      //         });
+                      //       },
+                      //   child: AppTextFieldForm(
+                      //   labelText: 'Product Category',
+                      //   controller: productCategory,
+                      //   isEnabled: false,
+                      //   suffixIcon: Icon(Icons.keyboard_arrow_down),
+                      //   ),
+                      // )
                     ],
                   )
                 ),
