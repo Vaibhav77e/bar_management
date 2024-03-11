@@ -195,8 +195,6 @@ class _EditInventoryProductsState extends State<EditInventoryProducts> {
   }
 
   showEditDialog(){
-
-    MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
     showDialog(
       
       context: context,

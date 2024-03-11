@@ -220,7 +220,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
             ),
             Expanded(
                     child: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 200),
+                      duration:const Duration(milliseconds: 200),
                       child: _currentWidget,
                     ),
                 ),
