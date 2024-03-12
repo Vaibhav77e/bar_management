@@ -25,4 +25,5 @@ class AppColors{
   static const Color testColor = Color(0xFFFFD700);
   static const Color testColor2 = Color(0xFF00008B);
   static const Color buttonBorderColor = Color(0xFF818080);
+  static const Color addToCartButton = Color(0xFFFDA403);
 }
