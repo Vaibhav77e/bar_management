@@ -90,7 +90,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                             buildTableRow(title:'Customer' ,bottomSpacing: 10),
                             buildTableRow(title:'Quantity',bottomSpacing: 10 ),
                             buildTableRow(title:'Total',bottomSpacing: 10 ),
-                            buildTableRow(title:'Status',bottomSpacing: 10,textAlign: TextAlign.center ),
+                            buildTableRow(title:'Status',bottomSpacing: 10),
                             buildTableRow(title:'',bottomSpacing: 10 ),
                   ],
                 ),
@@ -109,25 +109,26 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     buildTableRow(title: 'Captain miller 4',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: '8',bottomSpacing: 15,topSpacing: 10),
                     buildTableRow(title: '₹ 1320',bottomSpacing: 15,topSpacing: 10),
-                    Padding(padding: const EdgeInsets.only(bottom:15,top: 10 ),
-                    child: CustomRoundedDropdown(
-                      borderRadius: 24,
-                      value: initalStatus,
-                      onChanged: (value) {
-                        print('Selected value: $value');
-                        setState(() {
-                          print('index : $index');
-                            initalStatus=value!;
-                        });
-                      } ,
-                      items:status.map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                    ),
+                    buildTableRow(title: 'Paid',bottomSpacing: 15,topSpacing: 10),
+                    // Padding(padding: const EdgeInsets.only(bottom:15,top: 10 ),
+                    // child: CustomRoundedDropdown(
+                    //   borderRadius: 24,
+                    //   value: initalStatus,
+                    //   onChanged: (value) {
+                    //     print('Selected value: $value');
+                    //     setState(() {
+                    //       print('index : $index');
+                    //         initalStatus=value!;
+                    //     });
+                    //   } ,
+                    //   items:status.map<DropdownMenuItem<String>>((String value) {
+                    //     return DropdownMenuItem<String>(
+                    //       value: value,
+                    //       child: Text(value),
+                    //     );
+                    //   }).toList(),
+                    // ),
+                    // ),
                     Padding(
                       padding:const EdgeInsets.only(top:10),
                       child: PopupMenuButton<Generate>(

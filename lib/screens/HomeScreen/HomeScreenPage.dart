@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import '../../utils/AppColors.dart';
 import '../Inventory/AddProductsToInventory.dart';
 import '../Inventory/EditInventoryProducts.dart';
-import '../Staffs/EditStaffs.dart';
+import '../Staffs/ViewStaffs.dart';
 
 
 class HomeScreenPage extends StatefulWidget {

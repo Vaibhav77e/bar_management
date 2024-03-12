@@ -32,6 +32,8 @@ class _ProceedToCheckOutDialogState extends State<ProceedToCheckOutDialog> {
     MediaQueryHelper mediaQueryHelper = MediaQueryHelper(context);
 
     return AlertDialog(
+      backgroundColor: AppColors.whiteColor,
+      surfaceTintColor: Colors.transparent,
       content: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

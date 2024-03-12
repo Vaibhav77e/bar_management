@@ -10,7 +10,7 @@ import '../DashBoard/DashBoardScreen.dart';
 import '../Orders/OrdersScreen.dart';
 import '../Payments/PaymentsScreen.dart';
 import '../Reports/ReportsScreen.dart';
-import '../Staffs/EditStaffs.dart';
+import '../Staffs/ViewStaffs.dart';
 
 
 class DrawerMenuScreen extends StatefulWidget {
@@ -175,7 +175,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                         },
                         assetImage: 'assets/images/edit.png',
                         height: 3,
-                        title: 'Edit Staffs',
+                        title: 'View Staffs',
                         textColor: index==6?AppColors.testColor:AppColors.expansionTileColor,
                         imageColor: index==6?AppColors.testColor:AppColors.expansionTileColor
                       ),

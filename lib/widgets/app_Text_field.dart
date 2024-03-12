@@ -15,6 +15,9 @@ class AppTextFieldForm extends StatelessWidget{
   final int? maxLines;
   final Widget? suffixIcon;
   final bool? isEnabled;
+  double? fontSize;
+  double? cursorHeight;
+  TextAlign textAlign;
 
   AppTextFieldForm({
     required this.labelText,
@@ -25,18 +28,26 @@ class AppTextFieldForm extends StatelessWidget{
     this.suffixIcon,
     this.maxLines=1,
     this.isEnabled=true,
-    this.textCapitalization = TextCapitalization.none
+    this.textCapitalization = TextCapitalization.none,
+    this.fontSize,
+    this.cursorHeight,
+    this.textAlign = TextAlign.start,
   });
 
   @override
   Widget build(BuildContext context) {
     return  TextFormField(
+      textAlign: textAlign,
         inputFormatters: [
           LengthLimitingTextInputFormatter(maxLength),
           FilteringTextInputFormatter.deny(
              RegExp(r'^ +'), // This regex matches one or more spaces at the beginning of the input
           )
         ],
+        style: TextStyle(
+          fontSize:fontSize
+        ),
+        cursorHeight:cursorHeight ,
         textCapitalization: textCapitalization,
         controller: controller,
         enabled:isEnabled ,
