@@ -1,3 +1,4 @@
+import 'package:bar_management_system/extrapage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'routes/route.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
     //home: HomeScreenPage(),
-      home: TestDashBoardScreen(),
+      home: PaymentsScreen(),
     // home: DrawerMenuScreen(),
       routes: APP_ROUTES,
     );
