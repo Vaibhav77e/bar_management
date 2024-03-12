@@ -83,6 +83,7 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
                                 width: mediaQueryHelper.getWidthPercentage(10),
                                 child: CustomRoundedDropdown(
                                   height: mediaQueryHelper.getHeightPercentage(0.4),
+                                  
                                   borderRadius: 24,
                                   value: initialValue,
                                   items: availableQuantity.map<DropdownMenuItem<String>>(
@@ -164,9 +165,16 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          CircleAvatar(
-                                          backgroundColor: AppColors.vineGreenColor,child: Icon(Icons.check,color: AppColors.whiteColor,),),
+                                          Padding(
+                                            padding:  EdgeInsets.only(top: 3),
+                                            child: CircleAvatar(
+                                            radius: 10,
+                                            backgroundColor: AppColors.vineGreenColor,
+                                            child: Icon(Icons.check,color: AppColors.whiteColor,size: 10,),),
+                                          ),
+                                          SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5),),
                                           SizedBox(
                                             width: mediaQueryHelper.getHeightPercentage(20),
                                           //  height: mediaQueryHelper.getHeightPercentage(50),
@@ -176,8 +184,8 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
                                         ],
                                       ),
                                       SizedBox(height: mediaQueryHelper.getHeightPercentage(10),),
-                                      Text('Grand Total : 15800',style: AppTypography.mediumHeading,),
-                                      SizedBox(height: mediaQueryHelper.getHeightPercentage(10),),
+                                      Text('Grand Total : ₹ 15800',style: AppTypography.smallHeading.copyWith(fontSize:22),),
+                                      SizedBox(height: mediaQueryHelper.getHeightPercentage(8),),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
