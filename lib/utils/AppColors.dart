@@ -24,4 +24,5 @@ class AppColors{
   static const Color expansionTileColor = Color(0xFFFFF8E3);
   static const Color testColor = Color(0xFFFFD700);
   static const Color testColor2 = Color(0xFF00008B);
+  static const Color buttonBorderColor = Color(0xFF818080);
 }

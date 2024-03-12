@@ -24,7 +24,7 @@ class _AddProductsToInventoryState extends State<AddProductsToInventory> {
   final TextEditingController discountController = TextEditingController();
   final TextEditingController discountType = TextEditingController();
   final TextEditingController productCategory = TextEditingController();
-  
+
 
   String _selectDiscountType = 'N/A'; // Initial selected category
   String _selectProductCategory = 'Alcohol';

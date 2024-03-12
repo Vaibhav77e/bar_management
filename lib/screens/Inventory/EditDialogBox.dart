@@ -147,23 +147,25 @@ class _EditDialogBoxState extends State<EditDialogBox> {
                         borderColor: Colors.transparent,
                         dropDownBodyColor:AppColors.textFieldBodyColor,
                         height: mediaQueryHelper.getHeightPercentage(0.8),
-                items:  options.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  alignment: Alignment.center,
-                  child: Text(  
-                    value,
-                    style: AppTypography.normalText,
-                  ),
-                );
-              }).toList(), value: dropdownValue, onChanged: (newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    dropdownValue = newValue;
-                    print('Drop Down Value: ' + dropdownValue); 
-                  });
-                }
-              }),
+                        items:  options.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          alignment: Alignment.center,
+                          child: Text(
+                            value,
+                            style: AppTypography.normalText,
+                          ),
+                        );
+                      }).toList(), 
+                      value: dropdownValue,
+                       onChanged: (newValue) {
+                        if (newValue != null) {
+                          setState(() {
+                            dropdownValue = newValue;
+                            print('Drop Down Value: ' + dropdownValue); 
+                          });
+                        }
+                      }),
 
                 )
 
