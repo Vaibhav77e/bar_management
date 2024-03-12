@@ -5,16 +5,17 @@ import '../../utils/AppColors.dart';
 import '../../utils/MediaqueryHelper.dart';
 import '../../widgets/CustomDropDown/CustomDropDown.dart';
 import '../../widgets/app_Text_field.dart';
+import '../../widgets/app_button.dart';
 
 
-class AddDialogButton extends StatefulWidget {
-  const AddDialogButton({Key? key}) : super(key: key);
+class ProceedToCheckOutDialog extends StatefulWidget {
+  const ProceedToCheckOutDialog({Key? key}) : super(key: key);
 
   @override
-  State<AddDialogButton> createState() => _AddDialogButtonState();
+  State<ProceedToCheckOutDialog> createState() => _ProceedToCheckOutDialogState();
 }
 
-class _AddDialogButtonState extends State<AddDialogButton> {
+class _ProceedToCheckOutDialogState extends State<ProceedToCheckOutDialog> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController quantityController = TextEditingController();
@@ -33,6 +34,7 @@ class _AddDialogButtonState extends State<AddDialogButton> {
     return AlertDialog(
       content: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -56,10 +58,10 @@ class _AddDialogButtonState extends State<AddDialogButton> {
                         controller: phoneController,
                       ),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
-                      const Text('Quantity', style: AppTypography.normalSmallText),
+                      const Text('Total Quantity', style: AppTypography.normalSmallText),
                       SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
                       AppTextFieldForm(
-                        labelText: 'Quantity',
+                        labelText: 'Total Quantity',
                         controller: quantityController,
                       ),
                     ],
@@ -130,19 +132,49 @@ class _AddDialogButtonState extends State<AddDialogButton> {
                           }
                         },
                       ),
-                      SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
-                      const Text('Amount', style: AppTypography.normalSmallText),
-                      SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
-                      AppTextFieldForm(
-                        labelText: 'Amount',
-                        controller: amountController,
-                      ),
-                      SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                      
                     ],
                   ),
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                    const Text('Amount', style: AppTypography.normalSmallText),
+                    SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                    SizedBox(
+                    width: mediaQueryHelper.getWidthPercentage(15),
+                      child: AppTextFieldForm(
+                        labelText: 'Amount',
+                        controller: amountController,
+                        isEnabled: false,
+                      ),
+                    ),
+                  ]
+                ),
+                SizedBox(
+                  width: mediaQueryHelper.getWidthPercentage(10),
+                  child:AppButton(
+                    onTap: (){
+                    Navigator.of(context).pop();
+                  },
+                  text: 'PAY',
+                  fontSize: 15,
+                  
+                  buttonColor: AppColors.primaryColor,
+                  color: AppColors.whiteColor,
+                  )
+                )
+              ],
+            )
+            
+
           ],
         ),
       ),

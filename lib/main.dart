@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
     //home: HomeScreenPage(),
-      home: PaymentsScreen(),
-    // home: DrawerMenuScreen(),
+     // home: PaymentsScreen(),
+     home: DrawerMenuScreen(),
       routes: APP_ROUTES,
     );
   }
