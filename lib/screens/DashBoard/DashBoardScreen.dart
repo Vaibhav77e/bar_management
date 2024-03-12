@@ -12,143 +12,149 @@ class DashBoardScreen  extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
+  
   @override
   Widget build(BuildContext context) {
     MediaQueryHelper mediaQueryHelper =  MediaQueryHelper(context);
+    double breakDownWidth = mediaQueryHelper.getScreenWidth();
+    print('Width : ${mediaQueryHelper.getScreenWidth()}');
     return Padding(
           padding:  EdgeInsets.symmetric(
                   horizontal: mediaQueryHelper.getWidthPercentage(2),
                   vertical:mediaQueryHelper.getHeightPercentage(2)
                   ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-            SizedBox(height: mediaQueryHelper.getHeightPercentage(5),),
-            Text('Dashboard',style: AppTypography.mediumHeading,),
-            SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: mediaQueryHelper.getWidthPercentage(59),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+          child: SingleChildScrollView(
+            scrollDirection:1407 > breakDownWidth? Axis.horizontal:Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              SizedBox(height: mediaQueryHelper.getHeightPercentage(5),),
+              Text('Dashboard',style: AppTypography.mediumHeading,),
+              SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: mediaQueryHelper.getWidthPercentage(59),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,// const Icon(Icons.favorite,color: AppColors.greenColor,),
-                          children: [
-                          buildCardBody(title: '2000+',subtitle:'Daily Happy Customers',assetName:'assets/images/dashboard-images/heart.png'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1)),
-                          buildCardBody(title: '3456789',subtitle:'Stocks Bottles',assetName:'assets/images/dashboard-images/wine-bottle.png'),
-                          SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
-                          buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert',assetName:'assets/images/dashboard-images/save-water.png'),
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                            Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,// const Icon(Icons.favorite,color: AppColors.greenColor,),
+                            children: [
+                            buildCardBody(title: '2000+',subtitle:'Daily Happy Customers',assetName:'assets/images/dashboard-images/heart.png'),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(1)),
+                            buildCardBody(title: '3456789',subtitle:'Stocks Bottles',assetName:'assets/images/dashboard-images/wine-bottle.png'),
+                            SizedBox(width: mediaQueryHelper.getWidthPercentage(1),),
+                            buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert',assetName:'assets/images/dashboard-images/save-water.png'),
+                              ]
+                            ),
                             ]
                           ),
-                          ]
-                        ),
-                        SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-                          Row(
-                          children: [
-                            Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
-                          ],
-                        ),
-                        SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
-                        SizedBox(
-                        width: mediaQueryHelper.getWidthPercentage(80),
-                        child: Column(
-                          children: [
-                          Table(
-                          border: TableBorder(bottom: BorderSide(width: 0.1)),
-                                  children: [
-                                    TableRow(
-                                       children: [
-                                        buildTableRow(title:'Order Id',bottomSpacing: 10),
-                                        buildTableRow(title:'Product' ,bottomSpacing: 10),
-                                        buildTableRow(title:'Price' ,bottomSpacing: 10),
-                                        buildTableRow(title:'Quantity',bottomSpacing: 10 ),
-                                        buildTableRow(title:'Total Amount',bottomSpacing: 10 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: mediaQueryHelper.getHeightPercentage(60),
-                        width: mediaQueryHelper.getWidthPercentage(80),
-                        child:  ListView.builder(
-                      itemCount: 10,
-                      itemBuilder: (context,index)=>
-                      Table(
-                        //border: TableBorder(bottom: BorderSide(width:0.2)),
-                        children: [
-                          TableRow(
-                        children: [
-                        buildTableRow(title: '3423423',topSpacing: 15),
-                        Padding(
-                          padding:  EdgeInsets.only(bottom: mediaQueryHelper.getHeightPercentage(1),top: mediaQueryHelper.getHeightPercentage(1)),
-                          child: SizedBox(
-                          width: mediaQueryHelper.getWidthPercentage(20),
-                          child: Row(
+                          SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                            Row(
                             children: [
-                              Container(
-                                height: mediaQueryHelper.getHeightPercentage(8),
-                                decoration: BoxDecoration(
-                                color: AppColors.greyColor,
-                                borderRadius: BorderRadius.circular(12)),
-                                child: ClipRRect(borderRadius:  BorderRadius.circular(12),
-                                child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),
-                                // child: Image.asset('assets/images/replace-images/amstel_bier.png')
-                                ),
-                              ),
-                              SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
-                              Text('Amstel Bier')
+                              Text('Recent Orders',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
                             ],
-                          ),),
-                        ),
-                        buildTableRow(title: '₹ 250',topSpacing: 15),
-                        buildTableRow(title: '20',topSpacing: 15),
-                        buildTableRow(title: '₹ 5500',topSpacing: 15),
+                          ),
+                          SizedBox(height: mediaQueryHelper.getHeightPercentage(2),),
+                          SizedBox(
+                          width: mediaQueryHelper.getWidthPercentage(80),
+                          child: Column(
+                            children: [
+                            Table(
+                            border: TableBorder(bottom: BorderSide(width: 0.1)),
+                                    children: [
+                                      TableRow(
+                                         children: [
+                                          buildTableRow(title:'Order Id',bottomSpacing: 10),
+                                          buildTableRow(title:'Product' ,bottomSpacing: 10),
+                                          buildTableRow(title:'Price' ,bottomSpacing: 10),
+                                          buildTableRow(title:'Quantity',bottomSpacing: 10 ),
+                                          buildTableRow(title:'Total Amount',bottomSpacing: 10 ),
                                 ],
                               ),
                             ],
-                          )
                           ),
-                        )
-                        ]
-                        ),
-                        )
-                      ],
+                          SizedBox(
+                            height: mediaQueryHelper.getHeightPercentage(60),
+                          width: mediaQueryHelper.getWidthPercentage(80),
+                          child:  ListView.builder(
+                        itemCount: 10,
+                        itemBuilder: (context,index)=>
+                        Table(
+                          //border: TableBorder(bottom: BorderSide(width:0.2)),
+                          children: [
+                            TableRow(
+                          children: [
+                          buildTableRow(title: '3423423',topSpacing: 15),
+                          Padding(
+                            padding:  EdgeInsets.only(bottom: mediaQueryHelper.getHeightPercentage(1),top: mediaQueryHelper.getHeightPercentage(1)),
+                            child: SizedBox(
+                            width: mediaQueryHelper.getWidthPercentage(20),
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: mediaQueryHelper.getHeightPercentage(8),
+                                  decoration: BoxDecoration(
+                                  color: AppColors.greyColor,
+                                  borderRadius: BorderRadius.circular(12)),
+                                  child: ClipRRect(borderRadius:  BorderRadius.circular(12),
+                                  child: Image.network('https://www.unitedbreweries.com/images/our-brands/amstel_bier.jpg',fit: BoxFit.fill,),
+                                  // child: Image.asset('assets/images/replace-images/amstel_bier.png')
+                                  ),
+                                ),
+                                SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
+                                Text('Amstel Bier')
+                              ],
+                            ),),
+                          ),
+                          buildTableRow(title: '₹ 250',topSpacing: 15),
+                          buildTableRow(title: '20',topSpacing: 15),
+                          buildTableRow(title: '₹ 5500',topSpacing: 15),
+                                  ],
+                                ),
+                              ],
+                            )
+                            ),
+                          )
+                          ]
+                          ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(width: mediaQueryHelper.getWidthPercentage(2),),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: mediaQueryHelper.getHeightPercentage(10)),
-                        Text('Top Sellers of the Week',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
-                        topSellerCard(assetName: 'assets/images/replace-images/kingfisher_ultra.png',
-                        price: '130',
-                        title: 'Kingfisher Strong',
-                        unitsSold: '5000'
-                        ),
-                        topSellerCard(assetName: 'assets/images/replace-images/heineken.png',
-                        price: '135',
-                        title: 'Heineken',
-                        unitsSold: '4500'
-                        ),
-                        topSellerCard(assetName: 'assets/images/replace-images/Kingfisher.png',
-                        price: '170',
-                        title: 'Kingfisher Ultra ',
-                        unitsSold: '4000'
-                        ),
-                      ],
-                    ),
-                ],
-              ),
-            ],
+                    SizedBox(width: mediaQueryHelper.getWidthPercentage(2),),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: mediaQueryHelper.getHeightPercentage(10)),
+                          Text('Top Sellers of the Week',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
+                          topSellerCard(assetName: 'assets/images/replace-images/kingfisher_ultra.png',
+                          price: '130',
+                          title: 'Kingfisher Strong',
+                          unitsSold: '5000'
+                          ),
+                          topSellerCard(assetName: 'assets/images/replace-images/heineken.png',
+                          price: '135',
+                          title: 'Heineken',
+                          unitsSold: '4500'
+                          ),
+                          topSellerCard(assetName: 'assets/images/replace-images/Kingfisher.png',
+                          price: '170',
+                          title: 'Kingfisher Ultra ',
+                          unitsSold: '4000'
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              ],
+            ),
           )
         );
   }
