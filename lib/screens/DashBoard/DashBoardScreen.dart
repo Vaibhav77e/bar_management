@@ -43,7 +43,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                            Row(
+                           1407>breakDownWidth?const SizedBox():Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,// const Icon(Icons.favorite,color: AppColors.greenColor,),
                             children: [
                             buildCardBody(title: '2000+',subtitle:'Daily Happy Customers',assetName:'assets/images/dashboard-images/heart.png'),
@@ -109,7 +109,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                   ),
                                 ),
                                 SizedBox(width: mediaQueryHelper.getWidthPercentage(0.5)),
-                                Text('Amstel Bier')
+                                SizedBox(
+                                width: mediaQueryHelper.getWidthPercentage(5),
+                                child: Text('Amstel Bier',style: AppTypography.normalSmallText,))
                               ],
                             ),),
                           ),
@@ -133,6 +135,15 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(height: mediaQueryHelper.getHeightPercentage(10)),
+                            1407>breakDownWidth?Column(
+                            children: [
+                            buildCardBody(title: '2000+',subtitle:'Daily Happy Customers',assetName:'assets/images/dashboard-images/heart.png'),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1)),
+                            buildCardBody(title: '3456789',subtitle:'Stocks Bottles',assetName:'assets/images/dashboard-images/wine-bottle.png'),
+                            SizedBox(height: mediaQueryHelper.getHeightPercentage(1),),
+                            buildCardBody(title: 'Kingfisher Beer',subtitle:'Low Inventory Alert',assetName:'assets/images/dashboard-images/save-water.png'),
+                            ],
+                          ):const SizedBox(),
                           Text('Top Sellers of the Week',style: AppTypography.smallHeading.copyWith(fontWeight:FontWeight.w600),),
                           topSellerCard(assetName: 'assets/images/replace-images/kingfisher_ultra.png',
                           price: '130',
@@ -149,6 +160,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                           title: 'Kingfisher Ultra ',
                           unitsSold: '4000'
                           ),
+                      
                         ],
                       ),
                   ],
